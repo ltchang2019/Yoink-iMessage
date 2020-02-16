@@ -11,6 +11,16 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    @IBAction func expandButtonPressed(_ sender: Any){
+        requestPresentationStyle(.expanded)
+        
+        
+        let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: "SurveyViewController")
+
+        show(secondVC, sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

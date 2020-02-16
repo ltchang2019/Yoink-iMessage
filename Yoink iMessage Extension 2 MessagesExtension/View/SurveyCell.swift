@@ -1,0 +1,108 @@
+//
+//  SurveyCell.swift
+//  TreeHacksApp2
+//
+//  Created by Luke Tchang on 2/14/20.
+//  Copyright © 2020 Luke Tchang. All rights reserved.
+//
+
+protocol SurveyCellDelegate {
+    func changeAnswer(questionNumber: Int, newCheckedRow: Int)
+}
+
+import UIKit
+
+class SurveyCell: UICollectionViewCell{
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answersTableView: UITableView!
+    @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var shadowView2: UIView!
+    
+    let cellHeightSpacing: CGFloat = 30
+    
+    var delegate: SurveyCellDelegate!
+            
+    var surveyInfo: SurveyInfo!{
+        didSet{
+            fillCell()
+            answersTableView.dataSource = self
+            answersTableView.delegate = self as! UITableViewDelegate
+            answersTableView.allowsSelection = true
+            answersTableView.backgroundColor = UIColor.clear
+            
+            contentView.layer.cornerRadius = 20.0
+            contentView.layer.borderColor = UIColor.white.cgColor
+            contentView.layer.masksToBounds = true
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 0)
+            layer.shadowOpacity = 0.20    // not recommend >0.25
+            layer.shadowRadius = 15.0
+            layer.masksToBounds = false
+            layer.shadowPath = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+        }
+    }
+    
+    func fillCell(){
+        questionLabel.text = surveyInfo.question
+        answersTableView.reloadData()
+    }
+}
+
+extension SurveyCell: UITableViewDataSource{
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return surveyInfo.answers.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as! AnswerTableViewCell
+        
+        cell.answer = surveyInfo.answers[indexPath.section]
+        
+//        if(!cell.checked){
+//            cell.accessoryType = .none
+//        }
+        
+        return cell
+     }
+    
+}
+
+extension SurveyCell: UITableViewDelegate{
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellHeightSpacing
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadData()
+        if let cell = tableView.cellForRow(at: indexPath) as? AnswerTableViewCell{
+            for otherCell in tableView.visibleCells as! [AnswerTableViewCell]{
+                if(otherCell.checked){
+                    otherCell.checked = false
+                    otherCell.updateCell()
+                }
+            }
+            
+            cell.checked = true
+            cell.updateCell()
+            delegate.changeAnswer(questionNumber: surveyInfo.number!, newCheckedRow: indexPath.section)
+        }
+    }
+}
+
+
+

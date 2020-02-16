@@ -13,6 +13,11 @@
 		9ACE01C723F8F6DC00EF2EB2 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01C623F8F6DC00EF2EB2 /* MessagesViewController.swift */; };
 		9ACE01CA23F8F6DC00EF2EB2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE01C823F8F6DC00EF2EB2 /* MainInterface.storyboard */; };
 		9ACE01CC23F8F6DD00EF2EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE01CB23F8F6DD00EF2EB2 /* Assets.xcassets */; };
+		9ACE01DB23F8F74600EF2EB2 /* SurveyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01DA23F8F74600EF2EB2 /* SurveyInfo.swift */; };
+		9ACE01DD23F8F75500EF2EB2 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01DC23F8F75500EF2EB2 /* SurveyResponse.swift */; };
+		9ACE01DF23F8F76800EF2EB2 /* SurveyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01DE23F8F76800EF2EB2 /* SurveyCell.swift */; };
+		9ACE01E123F8F78700EF2EB2 /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E023F8F78700EF2EB2 /* AnswerTableViewCell.swift */; };
+		9ACE01E323F8F79600EF2EB2 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		9ACE01C923F8F6DC00EF2EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		9ACE01CB23F8F6DD00EF2EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ACE01CD23F8F6DD00EF2EB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ACE01DA23F8F74600EF2EB2 /* SurveyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyInfo.swift; sourceTree = "<group>"; };
+		9ACE01DC23F8F75500EF2EB2 /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
+		9ACE01DE23F8F76800EF2EB2 /* SurveyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCell.swift; sourceTree = "<group>"; };
+		9ACE01E023F8F78700EF2EB2 /* AnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableViewCell.swift; sourceTree = "<group>"; };
+		9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +112,41 @@
 		9ACE01C523F8F6DC00EF2EB2 /* Yoink iMessage Extension 2 MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				9ACE01C623F8F6DC00EF2EB2 /* MessagesViewController.swift */,
-				9ACE01C823F8F6DC00EF2EB2 /* MainInterface.storyboard */,
+				9ACE01D923F8F73600EF2EB2 /* Model */,
+				9ACE01D823F8F73300EF2EB2 /* View */,
+				9ACE01D723F8F73000EF2EB2 /* Controller */,
 				9ACE01CB23F8F6DD00EF2EB2 /* Assets.xcassets */,
 				9ACE01CD23F8F6DD00EF2EB2 /* Info.plist */,
 			);
 			path = "Yoink iMessage Extension 2 MessagesExtension";
+			sourceTree = "<group>";
+		};
+		9ACE01D723F8F73000EF2EB2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9ACE01C623F8F6DC00EF2EB2 /* MessagesViewController.swift */,
+				9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9ACE01D823F8F73300EF2EB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9ACE01DE23F8F76800EF2EB2 /* SurveyCell.swift */,
+				9ACE01E023F8F78700EF2EB2 /* AnswerTableViewCell.swift */,
+				9ACE01C823F8F6DC00EF2EB2 /* MainInterface.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9ACE01D923F8F73600EF2EB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9ACE01DA23F8F74600EF2EB2 /* SurveyInfo.swift */,
+				9ACE01DC23F8F75500EF2EB2 /* SurveyResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +249,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ACE01C723F8F6DC00EF2EB2 /* MessagesViewController.swift in Sources */,
+				9ACE01DF23F8F76800EF2EB2 /* SurveyCell.swift in Sources */,
+				9ACE01DB23F8F74600EF2EB2 /* SurveyInfo.swift in Sources */,
+				9ACE01E123F8F78700EF2EB2 /* AnswerTableViewCell.swift in Sources */,
+				9ACE01E323F8F79600EF2EB2 /* SurveyViewController.swift in Sources */,
+				9ACE01DD23F8F75500EF2EB2 /* SurveyResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
