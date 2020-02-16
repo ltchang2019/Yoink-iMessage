@@ -18,6 +18,7 @@
 		9ACE01DF23F8F76800EF2EB2 /* SurveyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01DE23F8F76800EF2EB2 /* SurveyCell.swift */; };
 		9ACE01E123F8F78700EF2EB2 /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E023F8F78700EF2EB2 /* AnswerTableViewCell.swift */; };
 		9ACE01E323F8F79600EF2EB2 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */; };
+		9ACE01E523F90CF300EF2EB2 /* DinnerStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		9ACE01DE23F8F76800EF2EB2 /* SurveyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCell.swift; sourceTree = "<group>"; };
 		9ACE01E023F8F78700EF2EB2 /* AnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableViewCell.swift; sourceTree = "<group>"; };
 		9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerStatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				9ACE01C623F8F6DC00EF2EB2 /* MessagesViewController.swift */,
 				9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */,
+				9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			files = (
 				9ACE01C723F8F6DC00EF2EB2 /* MessagesViewController.swift in Sources */,
 				9ACE01DF23F8F76800EF2EB2 /* SurveyCell.swift in Sources */,
+				9ACE01E523F90CF300EF2EB2 /* DinnerStatusViewController.swift in Sources */,
 				9ACE01DB23F8F74600EF2EB2 /* SurveyInfo.swift in Sources */,
 				9ACE01E123F8F78700EF2EB2 /* AnswerTableViewCell.swift in Sources */,
 				9ACE01E323F8F79600EF2EB2 /* SurveyViewController.swift in Sources */,

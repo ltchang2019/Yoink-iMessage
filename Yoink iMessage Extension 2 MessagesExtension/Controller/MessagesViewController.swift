@@ -12,21 +12,55 @@ import Messages
 class MessagesViewController: MSMessagesAppViewController {
     
     @IBAction func expandButtonPressed(_ sender: Any){
-        requestPresentationStyle(.expanded)
-        
-        
-        let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "SurveyViewController")
-
-        show(secondVC, sender: self)
+        if let conversation = activeConversation {
+            let layout = MSMessageTemplateLayout()
+            layout.caption = "Stepper Value"
+            
+            let message = MSMessage()
+            message.layout = layout
+            message.url = URL(string: "yoink.com/fillform")
+            conversation.insert(message, completionHandler: { (error: Error?) in
+                print(error)
+            })
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if(activeConversation?.selectedMessage?.url?.absoluteString == nil){
+            
+        } else {
+            requestPresentationStyle(.expanded)
+            let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
+            let dinnerStatusVC = storyboard.instantiateViewController(identifier: "DinnerStatusVC") as! DinnerStatusViewController
+            dinnerStatusVC.delegate = self
+            show(dinnerStatusVC, sender: self)
+        }
+    }
+        
+}
+
+
+extension MessagesViewController: DinnerStatusDelegate{
+    func sendRecMessage(restaurantName: String, similarity: Double) {
+        print("MESSAGE SENDING")
+        if let conversation = activeConversation {
+            conversation.insertText("Restaurant Name: \(restaurantName), Similarity: \(similarity)") { (error: Error?) in
+                print(error)
+                self.dismiss()
+            }
+        }
+    }
+}
+
+    
     // MARK: - Conversation Handling
+extension MessagesViewController{
     
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.

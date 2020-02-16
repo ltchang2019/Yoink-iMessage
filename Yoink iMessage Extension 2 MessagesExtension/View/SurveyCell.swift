@@ -19,6 +19,7 @@ class SurveyCell: UICollectionViewCell{
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var shadowView2: UIView!
     
+    
     let cellHeightSpacing: CGFloat = 30
     
     var delegate: SurveyCellDelegate!
@@ -36,8 +37,8 @@ class SurveyCell: UICollectionViewCell{
             contentView.layer.masksToBounds = true
             layer.shadowColor = UIColor.black.cgColor
             layer.shadowOffset = CGSize(width: 0, height: 0)
-            layer.shadowOpacity = 0.20    // not recommend >0.25
-            layer.shadowRadius = 15.0
+            layer.shadowOpacity = 0.1    // not recommend >0.25
+            layer.shadowRadius = 5.0
             layer.masksToBounds = false
             layer.shadowPath = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
         }
@@ -59,10 +60,7 @@ extension SurveyCell: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerCell", for: indexPath) as! AnswerTableViewCell
         
         cell.answer = surveyInfo.answers[indexPath.section]
-        
-//        if(!cell.checked){
-//            cell.accessoryType = .none
-//        }
+        cell.accessoryType = cell.checked ? .checkmark : .none
         
         return cell
      }
@@ -70,7 +68,6 @@ extension SurveyCell: UITableViewDataSource{
 }
 
 extension SurveyCell: UITableViewDelegate{
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1

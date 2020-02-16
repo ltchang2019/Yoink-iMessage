@@ -12,7 +12,6 @@ import UIKit
 class SurveyViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var overallView: UIView!
     @IBOutlet weak var submitButton: UIView!
     
     var surveyInfoArray: [SurveyInfo] = [
@@ -24,6 +23,7 @@ class SurveyViewController: UIViewController {
     
     var answers: [Int] = [-1, -1, -1, -1]
     var surveyAnswers: SurveyResponse!
+    var personName: String!
     
     override func viewDidLoad() {
         collectionView.dataSource = self
@@ -34,21 +34,66 @@ class SurveyViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.submitResponses(_:)))
         submitButton.addGestureRecognizer(tap)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let alertController = UIAlertController(title: "Name", message:
+            "Please enter your name:", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (action: UIAlertAction) in
+            self.personName = alertController.textFields![0].text
+            print(self.personName)
+        }))
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter Name"
+        }
+
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func submitResponses(_ sender: UITapGestureRecognizer){
         if(checkForBlanks()){
-        
-        createSurveyResponseInstance()
-        print("Price: \(surveyAnswers.price!)")
-        print("Cuisine: \(surveyAnswers.cuisine!)")
-        print("Rating: \(surveyAnswers.rating!)")
-        print("Distance: \(surveyAnswers.distance!)")
-        //SEND DATA TO DATABASE
+            createSurveyResponseInstance()
+            print("Price: \(surveyAnswers.price!)")
+            print("Cuisine: \(surveyAnswers.cuisine!)")
+            print("Rating: \(surveyAnswers.rating!)")
+            print("Distance: \(surveyAnswers.distance!)")
+            print(personName!)
+            
+            submitPreferences(completion: {() -> Void in
+                self.dismiss(animated: true, completion: nil)
+            })
+           
         } else {
             blankAlert()
         }
+    }
+    
+    func submitPreferences(completion: @escaping () -> ()) {
+      var URLString = "https://yoink-268306.appspot.com/dinners/ABC123/preferences?name=\(personName!)&rating=\(surveyAnswers.rating!)&price=\(surveyAnswers.price!)&cuisine=\(surveyAnswers.cuisine!)&distance=\(surveyAnswers.distance!)"
+        
+      var request = URLRequest(url: URL(string: URLString)!)
+      request.httpMethod = "POST"
+        
+      let session = URLSession.shared
+       
+      let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
+        do {
+          let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
+          if let successStatus = json["status"] as? String {
+            if successStatus == "OK" {
+              completion()
+            }
+          }
+        } catch {
+            print("error!")
+            completion()
+        }
+      })
+       
+      task.resume()
     }
     
     func createSurveyResponseInstance(){

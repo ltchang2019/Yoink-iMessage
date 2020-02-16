@@ -27,11 +27,15 @@ class AnswerTableViewCell: UITableViewCell{
             self.accessoryType = .none
         }
         
-        self.backgroundColor = UIColor.white
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 1
+        self.backgroundColor = UIColor(hue: 0.5167, saturation: 0.29, brightness: 0.86, alpha: 1.0)
+//        self.layer.borderColor = UIColor.black.cgColor
+//        self.layer.borderWidth = 1
         self.layer.cornerRadius = 8
         self.clipsToBounds = true
+    }
+    
+    override func prepareForReuse() {
+        print("\(answer): \(checked)")
     }
     
 }
