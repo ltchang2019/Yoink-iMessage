@@ -9,6 +9,10 @@
 import UIKit
 //import Firebase
 
+protocol SurveyViewControllerDelegate{
+    func dismissView()
+}
+
 class SurveyViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -16,14 +20,16 @@ class SurveyViewController: UIViewController {
     
     var surveyInfoArray: [SurveyInfo] = [
         SurveyInfo(number: 1, question: "Price?", answers: ["$", "$$", "$$$"]),
-        SurveyInfo(number: 2, question: "Cuisine?", answers: ["American", "Mexican", "Chinese"]),
-        SurveyInfo(number: 3, question: "Rating?", answers: ["⭑", "⭑⭑", "⭑⭑⭑", "⭑⭑⭑⭑", "⭑⭑⭑⭑⭑"]),
-        SurveyInfo(number: 4, question: "Distance?", answers: ["Walking", "Biking", "Driving"])
+        SurveyInfo(number: 2, question: "Rating?", answers: ["⭑", "⭑⭑", "⭑⭑⭑", "⭑⭑⭑⭑", "⭑⭑⭑⭑⭑"]),
+        SurveyInfo(number: 3, question: "Distance?", answers: ["Walking", "Biking", "Driving"])
     ]
     
-    var answers: [Int] = [-1, -1, -1, -1]
+    var answers: [Int] = [-1, -1, -1]
     var surveyAnswers: SurveyResponse!
     var personName: String!
+
+    var sentCuisineAnswer: String!
+    var delegate: SurveyViewControllerDelegate!
     
     override func viewDidLoad() {
         collectionView.dataSource = self
@@ -63,7 +69,9 @@ class SurveyViewController: UIViewController {
             print(personName!)
             
             submitPreferences(completion: {() -> Void in
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true) {
+//                    self.delegate.dismissView()
+                }
             })
            
         } else {
@@ -72,9 +80,9 @@ class SurveyViewController: UIViewController {
     }
     
     func submitPreferences(completion: @escaping () -> ()) {
-      var URLString = "https://yoink-268306.appspot.com/dinners/ABC123/preferences?name=\(personName!)&rating=\(surveyAnswers.rating!)&price=\(surveyAnswers.price!)&cuisine=\(surveyAnswers.cuisine!)&distance=\(surveyAnswers.distance!)"
+      var URLString = "https://yoink-268306.appspot.com/dinners/MY6BZH/preferences?name=\(personName!)&rating=\(surveyAnswers.rating!)&price=\(surveyAnswers.price!)&cuisine=\(surveyAnswers.cuisine!)&distance=\(surveyAnswers.distance!)"
         
-      var request = URLRequest(url: URL(string: URLString)!)
+        var request = URLRequest(url: URL(string: URLString)!)
       request.httpMethod = "POST"
         
       let session = URLSession.shared
@@ -97,7 +105,7 @@ class SurveyViewController: UIViewController {
     }
     
     func createSurveyResponseInstance(){
-        surveyAnswers = SurveyResponse(price: answers[0]+1, cuisine: surveyInfoArray[1].answers[answers[1]], rating: answers[2]+1, distance: surveyInfoArray[3].answers[answers[3]])
+        surveyAnswers = SurveyResponse(price: answers[0]+1, cuisine: sentCuisineAnswer!, rating: answers[1]+1, distance: surveyInfoArray[2].answers[answers[2]])
     }
     
     func checkForBlanks() -> Bool {

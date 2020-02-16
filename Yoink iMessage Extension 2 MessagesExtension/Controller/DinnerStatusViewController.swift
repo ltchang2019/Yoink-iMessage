@@ -15,20 +15,30 @@ protocol DinnerStatusDelegate {
 class DinnerStatusViewController: UIViewController{
     
     @IBOutlet weak var respondentsListTableView: UITableView!
-    @IBOutlet weak var fillFormButton: UIButton!
-    @IBOutlet weak var getPreferencesButton: UIButton!
+    @IBOutlet weak var fillSurveyView: UIView!
+    @IBOutlet weak var getRecommendationView: UIView!
     
     var respondentsList: [String] = []
     var delegate: DinnerStatusDelegate!
     
-    @IBAction func getRecommendation(_ sender: Any) {
+@objc func getRecommendation(_ sender: Any) {
         print("Get Recommendation Pressed")
         getRec { (name, similarity) in
             print(name, similarity)
             self.delegate.sendRecMessage(restaurantName: name, similarity: similarity)
         }
-    }
+}
     
+@objc func openSurvey(_ sender: Any) {
+    performSegue(withIdentifier: "toSurvey", sender: self)
+}
+
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toSurvey"{
+        let surveyVC = segue.destination as! CuisineSearchViewController
+//        surveyVC.delegate = self as! SurveyViewControllerDelegate
+    }
+}
 
     
     override func viewDidLoad() {
@@ -36,7 +46,7 @@ class DinnerStatusViewController: UIViewController{
         respondentsListTableView.delegate = self as! UITableViewDelegate
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         getRespondents {
             DispatchQueue.main.async {
                 self.respondentsListTableView.reloadData()
@@ -44,8 +54,20 @@ class DinnerStatusViewController: UIViewController{
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        fillSurveyView.layer.cornerRadius = 10
+        getRecommendationView.layer.cornerRadius = 10
+        
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.getRecommendation(_:)))
+        getRecommendationView.addGestureRecognizer(tap1)
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(self.openSurvey(_:)))
+        fillSurveyView.addGestureRecognizer(tap2)
+        
+    }
+    
     func getRespondents(completion: @escaping () -> ()){
-        var URLString = "https://yoink-268306.appspot.com/dinners/ABC123/preferences"
+        var URLString = "https://yoink-268306.appspot.com/dinners/MY6BZH/preferences"
           
         var request = URLRequest(url: URL(string: URLString)!)
         request.httpMethod = "GET"
@@ -78,7 +100,7 @@ class DinnerStatusViewController: UIViewController{
     }
     
     func getRec(completion: @escaping (_ name: String, _ similarity: Double) -> ()){
-        var URLString = "https://yoink-268306.appspot.com/dinners/ABC123/recommend"
+        var URLString = "https://yoink-268306.appspot.com/dinners/MY6BZH/recommend"
           
         var request = URLRequest(url: URL(string: URLString)!)
         request.httpMethod = "GET"
@@ -107,6 +129,7 @@ class DinnerStatusViewController: UIViewController{
     
 }
 
+
 extension DinnerStatusViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return respondentsList.count
@@ -127,5 +150,14 @@ extension DinnerStatusViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
     }
-    
 }
+
+//extension DinnerStatusViewController: SurveyViewControllerDelegate{
+//    func refreshTable() {
+//        getRespondents {
+//            DispatchQueue.main.async {
+//                self.respondentsListTableView.reloadData()
+//            }
+//        }
+//    }
+//}

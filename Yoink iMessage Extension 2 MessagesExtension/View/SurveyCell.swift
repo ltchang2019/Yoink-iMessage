@@ -31,6 +31,7 @@ class SurveyCell: UICollectionViewCell{
             answersTableView.delegate = self as! UITableViewDelegate
             answersTableView.allowsSelection = true
             answersTableView.backgroundColor = UIColor.clear
+            answersTableView.separatorStyle = .none
             
             contentView.layer.cornerRadius = 20.0
             contentView.layer.borderColor = UIColor.white.cgColor

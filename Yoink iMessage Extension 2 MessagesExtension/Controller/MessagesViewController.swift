@@ -11,10 +11,13 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    
+    @IBOutlet weak var SendSurveyLabel: UIButton!
+    
     @IBAction func expandButtonPressed(_ sender: Any){
         if let conversation = activeConversation {
             let layout = MSMessageTemplateLayout()
-            layout.caption = "Stepper Value"
+            layout.caption = "Fill Out Preferences!"
             
             let message = MSMessage()
             message.layout = layout
@@ -30,19 +33,21 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if(activeConversation?.selectedMessage?.url?.absoluteString == nil){
-            
-        } else {
-            requestPresentationStyle(.expanded)
-            let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
-            let dinnerStatusVC = storyboard.instantiateViewController(identifier: "DinnerStatusVC") as! DinnerStatusViewController
-            dinnerStatusVC.delegate = self
-            show(dinnerStatusVC, sender: self)
+//        super.viewWillAppear(animated)
+    }
+    
+    override func didSelect(_ message: MSMessage, conversation: MSConversation) {
+        if let url = message.url{
+            if(url.absoluteString == "yoink.com/fillform"){
+                SendSurveyLabel.isHidden = true
+                requestPresentationStyle(.expanded)
+                let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
+                let dinnerStatusVC = storyboard.instantiateViewController(identifier: "DinnerStatusVC") as! DinnerStatusViewController
+                dinnerStatusVC.delegate = self
+                show(dinnerStatusVC, sender: self)
+            }
         }
     }
-        
 }
 
 
