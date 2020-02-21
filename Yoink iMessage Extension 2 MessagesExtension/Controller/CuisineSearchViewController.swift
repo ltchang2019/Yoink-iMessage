@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CuisineSearchControllerDelegate {
+    func refreshTable()
+}
+
 class CuisineSearchViewController: UIViewController{
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -15,6 +19,8 @@ class CuisineSearchViewController: UIViewController{
     @IBOutlet weak var nextButtonView: UIView!
     
     var finalString: String!
+    var personName: String!
+    var delegate: CuisineSearchControllerDelegate!
     
     override func viewDidLoad() {
         mySearchTextField.delegate = self as! UITextFieldDelegate
@@ -31,7 +37,30 @@ class CuisineSearchViewController: UIViewController{
         if(segue.identifier == "toSurvey2"){
             let survey2VC = segue.destination as! SurveyViewController
             survey2VC.sentCuisineAnswer = sender as? String
+            survey2VC.personName = self.personName as? String
+            survey2VC.delegate = self
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+//        self.delegate.refreshTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let alertController = UIAlertController(title: "Name", message:
+            "Please enter your name:", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (action: UIAlertAction) in
+            self.personName = alertController.textFields![0].text
+            print(self.personName)
+        }))
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter Name"
+        }
+
+        self.present(alertController, animated: true, completion: nil)
     }
     
     let suggestions = [
@@ -160,6 +189,8 @@ extension CuisineSearchViewController: UITextFieldDelegate{
 
 extension CuisineSearchViewController: SurveyViewControllerDelegate{
     func dismissView() {
+        //dismiss surveyVC delegate, then dismiss self
+        self.dismiss(animated: true, completion: nil)
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -36,7 +36,7 @@ class DinnerStatusViewController: UIViewController{
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toSurvey"{
         let surveyVC = segue.destination as! CuisineSearchViewController
-//        surveyVC.delegate = self as! SurveyViewControllerDelegate
+        surveyVC.delegate = self as! CuisineSearchControllerDelegate
     }
 }
 
@@ -152,12 +152,12 @@ extension DinnerStatusViewController: UITableViewDelegate{
     }
 }
 
-//extension DinnerStatusViewController: SurveyViewControllerDelegate{
-//    func refreshTable() {
-//        getRespondents {
-//            DispatchQueue.main.async {
-//                self.respondentsListTableView.reloadData()
-//            }
-//        }
-//    }
-//}
+extension DinnerStatusViewController: CuisineSearchControllerDelegate{
+    func refreshTable() {
+        getRespondents {
+            DispatchQueue.main.async {
+                self.respondentsListTableView.reloadData()
+            }
+        }
+    }
+}

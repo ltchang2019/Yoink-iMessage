@@ -11,6 +11,7 @@ import UIKit
 class AnswerTableViewCell: UITableViewCell{
     
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var bulletPoint: UIImageView!
     
     var checked: Bool = false
     var answer: String!{
@@ -22,12 +23,12 @@ class AnswerTableViewCell: UITableViewCell{
     func updateCell(){
         answerLabel.text = answer
         if(checked){
-            self.accessoryType = .checkmark
+            self.bulletPoint.image = UIImage(systemName: "circle.fill")
         } else {
-            self.accessoryType = .none
+            self.bulletPoint.image = UIImage(systemName: "circle")
         }
         
-        self.backgroundColor = UIColor(hue: 0.5167, saturation: 0.29, brightness: 0.86, alpha: 1.0)
+        self.backgroundColor = UIColor.clear
 //        self.layer.borderColor = UIColor.black.cgColor
 //        self.layer.borderWidth = 1
         self.layer.cornerRadius = 8

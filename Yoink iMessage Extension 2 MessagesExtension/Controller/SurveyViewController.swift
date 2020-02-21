@@ -33,6 +33,8 @@ class SurveyViewController: UIViewController {
     
     override func viewDidLoad() {
         collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        collectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.reloadData()
         
         self.view.sendSubviewToBack(collectionView)
@@ -43,20 +45,7 @@ class SurveyViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let alertController = UIAlertController(title: "Name", message:
-            "Please enter your name:", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (UIAlertAction) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        alertController.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (action: UIAlertAction) in
-            self.personName = alertController.textFields![0].text
-            print(self.personName)
-        }))
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Name"
-        }
-
-        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     @objc func submitResponses(_ sender: UITapGestureRecognizer){
@@ -69,11 +58,8 @@ class SurveyViewController: UIViewController {
             print(personName!)
             
             submitPreferences(completion: {() -> Void in
-                self.dismiss(animated: true) {
-//                    self.delegate.dismissView()
-                }
+                self.delegate.dismissView()
             })
-           
         } else {
             blankAlert()
         }
@@ -139,12 +125,40 @@ extension SurveyViewController: UICollectionViewDataSource{
         
         return cell
     }
+    
+    
 }
 
 extension SurveyViewController: SurveyCellDelegate{
-    
     func changeAnswer(questionNumber: Int, newCheckedRow: Int) {
         answers[questionNumber-1] = newCheckedRow
         print(answers)
+    }
+}
+
+
+
+
+//CLASS FOR SNAPPY COLLECTION VIEW
+class SnappingCollectionViewLayout: UICollectionViewFlowLayout {
+
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        guard let collectionView = collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
+
+        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
+        let verticalOffset = proposedContentOffset.x + collectionView.contentInset.right
+
+        let targetRect = CGRect(x: proposedContentOffset.x, y: proposedContentOffset.y, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
+
+        let layoutAttributesArray = super.layoutAttributesForElements(in: targetRect)
+
+        layoutAttributesArray?.forEach({ (layoutAttributes) in
+            let itemOffset = layoutAttributes.frame.origin.x
+            if fabsf(Float(itemOffset - verticalOffset)) < fabsf(Float(offsetAdjustment)) {
+                offsetAdjustment = itemOffset - verticalOffset
+            }
+        })
+
+        return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
     }
 }
