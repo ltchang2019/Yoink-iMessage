@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.44705882349999998" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.57647058823529407" blue="0.69019607843137254" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="w0f-2M-VfG" firstAttribute="centerY" secondItem="LDy-ih-0nr" secondAttribute="centerY" id="bo0-yn-O7h"/>
                             <constraint firstItem="w0f-2M-VfG" firstAttribute="centerX" secondItem="LDy-ih-0nr" secondAttribute="centerX" id="u31-gI-xUI"/>
@@ -62,7 +62,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.86935466610000001" green="0.0" blue="0.21587940859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.85882352941176465" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="TGp-Xc-Gqw" firstAttribute="height" secondItem="cXw-vk-bA8" secondAttribute="height" multiplier="0.533333" id="TFc-uw-M7c"/>
                                     <constraint firstItem="TGp-Xc-Gqw" firstAttribute="centerY" secondItem="cXw-vk-bA8" secondAttribute="centerY" id="azu-iw-dLc"/>
@@ -250,7 +250,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.86935466610000001" green="0.0" blue="0.21587940859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.2135310872179389" green="0.85694177751876144" blue="0.86935466610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="mVW-RY-Sxm" firstAttribute="centerX" secondItem="aUm-Ea-JVo" secondAttribute="centerX" id="6hH-c5-vOS"/>
                                     <constraint firstAttribute="width" constant="165.66666666666663" id="9KD-f0-su2"/>
@@ -259,7 +259,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.44705882349999998" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.57647058823529407" blue="0.69019607843137254" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Xhk-ab-Dwx" firstAttribute="bottom" secondItem="aUm-Ea-JVo" secondAttribute="bottom" constant="20" id="KbQ-sH-j5P"/>
                             <constraint firstItem="Xhk-ab-Dwx" firstAttribute="trailing" secondItem="aUm-Ea-JVo" secondAttribute="trailing" constant="20.333333333333371" id="MBa-QJ-pUE"/>
@@ -317,72 +317,125 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VtP-Wc-xgI" userLabel="Fill Survey">
-                                <rect key="frame" x="110" y="459" width="194" height="74"/>
-                                <color key="backgroundColor" red="0.60784313725490191" green="0.83921568627450982" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="194" id="d6N-9C-pLn"/>
-                                    <constraint firstAttribute="height" constant="74" id="xRy-E7-vyd"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill Out Survey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ9-Ii-4rl">
-                                <rect key="frame" x="147" y="484.66666666666669" width="120.33333333333331" height="23"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
-                                <color key="textColor" red="0.68627450980000004" green="0.0039215686269999999" blue="0.1529411765" alpha="0.92607555651780837" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-7b-fz9" userLabel="Get Recommendation">
-                                <rect key="frame" x="100" y="560" width="214" height="74"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Recommendation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2S-nn-sP8">
-                                        <rect key="frame" x="15.666666666666671" y="25.666666666666629" width="183" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
-                                        <color key="textColor" red="0.68627450980000004" green="0.0039215686269999999" blue="0.1529411765" alpha="0.92607555649999995" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.60784313729999995" green="0.83921568629999999" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="PYK-bR-mKa"/>
-                                    <constraint firstItem="o2S-nn-sP8" firstAttribute="centerX" secondItem="hOb-7b-fz9" secondAttribute="centerX" id="Rb6-qT-G7D"/>
-                                    <constraint firstAttribute="width" constant="214" id="cJF-ES-aFJ"/>
-                                    <constraint firstItem="o2S-nn-sP8" firstAttribute="centerY" secondItem="hOb-7b-fz9" secondAttribute="centerY" id="pet-6T-aFO"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Respondents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKr-xh-jAq">
                                 <rect key="frame" x="123" y="115" width="169" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZBl-ar-6fL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="736" id="9rS-zX-8GC"/>
+                                    <constraint firstAttribute="width" constant="414" id="azB-jU-i47"/>
+                                </constraints>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-mj-H3b" userLabel="Buttons View">
+                                <rect key="frame" x="0.0" y="601" width="414" height="135"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pN-jm-ZvL">
+                                        <rect key="frame" x="99.666666666666686" y="83" width="225" height="42"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" title="Get Recommendation">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-1j-rdL">
+                                        <rect key="frame" x="111" y="22" width="202" height="42"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" title="Submit Preferences">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="4Ff-1j-rdL" firstAttribute="top" secondItem="cpD-mj-H3b" secondAttribute="top" constant="22" id="5Nz-tb-Aqv"/>
+                                    <constraint firstItem="4Ff-1j-rdL" firstAttribute="leading" secondItem="cpD-mj-H3b" secondAttribute="leading" constant="111" id="Y4c-5I-1B2"/>
+                                    <constraint firstItem="0pN-jm-ZvL" firstAttribute="top" secondItem="4Ff-1j-rdL" secondAttribute="bottom" constant="19" id="aGg-jU-NLq"/>
+                                    <constraint firstItem="0pN-jm-ZvL" firstAttribute="centerX" secondItem="4Ff-1j-rdL" secondAttribute="centerX" id="x6z-tN-1kb"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.5" blue="0.48250938000684923" alpha="0.39747431506849318" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lrD-Fh-7SG" firstAttribute="top" secondItem="Pbs-qB-wsn" secondAttribute="top" constant="175" id="1s0-yd-trl"/>
-                            <constraint firstItem="VtP-Wc-xgI" firstAttribute="leading" secondItem="Pbs-qB-wsn" secondAttribute="leading" constant="110" id="CtT-Jk-mPI"/>
-                            <constraint firstItem="XQ9-Ii-4rl" firstAttribute="centerY" secondItem="VtP-Wc-xgI" secondAttribute="centerY" id="JAl-KE-LmW"/>
-                            <constraint firstItem="XQ9-Ii-4rl" firstAttribute="centerX" secondItem="VtP-Wc-xgI" secondAttribute="centerX" id="JJI-Qn-vxQ"/>
-                            <constraint firstItem="hOb-7b-fz9" firstAttribute="centerX" secondItem="Pbs-qB-wsn" secondAttribute="centerX" id="WKs-qG-mjK"/>
+                            <constraint firstItem="cpD-mj-H3b" firstAttribute="leading" secondItem="Pbs-qB-wsn" secondAttribute="leading" id="6HD-PJ-AFx"/>
+                            <constraint firstItem="ZBl-ar-6fL" firstAttribute="top" secondItem="Pbs-qB-wsn" secondAttribute="top" id="7x4-Mz-RYg"/>
+                            <constraint firstItem="cpD-mj-H3b" firstAttribute="bottom" secondItem="Pbs-qB-wsn" secondAttribute="bottom" id="CgG-OP-D9I"/>
+                            <constraint firstItem="cpD-mj-H3b" firstAttribute="top" secondItem="ZBl-ar-6fL" secondAttribute="bottom" constant="-135" id="Rbx-Tm-FoQ"/>
                             <constraint firstItem="qKr-xh-jAq" firstAttribute="top" secondItem="Pbs-qB-wsn" secondAttribute="top" constant="115" id="b5s-nE-9re"/>
-                            <constraint firstItem="Pbs-qB-wsn" firstAttribute="bottom" secondItem="hOb-7b-fz9" secondAttribute="bottom" constant="102" id="gj0-bL-zpY"/>
-                            <constraint firstItem="VtP-Wc-xgI" firstAttribute="centerX" secondItem="Pbs-qB-wsn" secondAttribute="centerX" id="kFG-rX-tQq"/>
+                            <constraint firstItem="cpD-mj-H3b" firstAttribute="trailing" secondItem="Pbs-qB-wsn" secondAttribute="trailing" id="fRN-IB-694"/>
                             <constraint firstItem="lrD-Fh-7SG" firstAttribute="leading" secondItem="Pbs-qB-wsn" secondAttribute="leading" constant="87" id="l4F-WA-FjU"/>
-                            <constraint firstItem="hOb-7b-fz9" firstAttribute="top" secondItem="VtP-Wc-xgI" secondAttribute="bottom" constant="27" id="s0s-fN-LkR"/>
                             <constraint firstItem="qKr-xh-jAq" firstAttribute="centerX" secondItem="lrD-Fh-7SG" secondAttribute="centerX" constant="-8.5" id="tD9-89-RPl"/>
-                            <constraint firstItem="hOb-7b-fz9" firstAttribute="leading" secondItem="Pbs-qB-wsn" secondAttribute="leading" constant="100" id="vor-ks-W2P"/>
+                            <constraint firstItem="ZBl-ar-6fL" firstAttribute="leading" secondItem="Pbs-qB-wsn" secondAttribute="leading" id="wn9-m5-hNx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pbs-qB-wsn"/>
                     </view>
                     <connections>
-                        <outlet property="fillSurveyView" destination="VtP-Wc-xgI" id="EZh-OJ-GlB"/>
-                        <outlet property="getRecommendationView" destination="hOb-7b-fz9" id="FvH-SO-gDc"/>
-                        <outlet property="respondentsListTableView" destination="lrD-Fh-7SG" id="vnI-1Q-dAz"/>
-                        <segue destination="DGI-6d-5GA" kind="presentation" identifier="toSurvey" id="hD2-sc-yyV"/>
+                        <outlet property="buttonsView" destination="cpD-mj-H3b" id="bmh-Ua-tt5"/>
+                        <outlet property="fillSurveyView" destination="4Ff-1j-rdL" id="cwV-ly-uus"/>
+                        <outlet property="getRecommendationView" destination="0pN-jm-ZvL" id="svX-34-ay5"/>
+                        <outlet property="mapView" destination="ZBl-ar-6fL" id="TYl-kD-QD2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLt-oj-wcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="578" y="214"/>
+            <point key="canvasLocation" x="576.81159420289862" y="213.58695652173915"/>
+        </scene>
+        <!--Floating Panel View Controller-->
+        <scene sceneID="IHv-hz-mgd">
+            <objects>
+                <viewController storyboardIdentifier="FloatingPanelVC" id="22o-dc-Egx" userLabel="Floating Panel View Controller" customClass="FloatingPanelViewController" customModule="Yoink_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZZV-pS-jzv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1s-b8-IR0">
+                                <rect key="frame" x="106" y="30" width="202" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title="Submit Preferences">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitPreferencesPressed:" destination="22o-dc-Egx" eventType="touchUpInside" id="kHL-pP-V7y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-OM-hIy">
+                                <rect key="frame" x="94.666666666666686" y="93" width="225" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title="Get Recommendation">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="getRecommendationsPressed:" destination="22o-dc-Egx" eventType="touchUpInside" id="zfu-OA-cmx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pgU-OM-hIy" firstAttribute="top" secondItem="E1s-b8-IR0" secondAttribute="bottom" constant="21" id="2d2-EQ-S8j"/>
+                            <constraint firstItem="E1s-b8-IR0" firstAttribute="top" secondItem="WDs-fs-3fW" secondAttribute="top" constant="30" id="FZ5-xP-MSS"/>
+                            <constraint firstItem="E1s-b8-IR0" firstAttribute="leading" secondItem="WDs-fs-3fW" secondAttribute="leading" constant="106" id="IIJ-I8-yaM"/>
+                            <constraint firstItem="pgU-OM-hIy" firstAttribute="centerX" secondItem="E1s-b8-IR0" secondAttribute="centerX" id="V4u-F4-lSn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WDs-fs-3fW"/>
+                    </view>
+                    <connections>
+                        <outlet property="getRecommendationsButton" destination="pgU-OM-hIy" id="yYE-4O-Kcf"/>
+                        <outlet property="submitPreferencesButton" destination="E1s-b8-IR0" id="X03-Be-L21"/>
+                        <segue destination="DGI-6d-5GA" kind="presentation" identifier="toSurvey" id="Ggy-5Z-Wwi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ras-Dl-myA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569" y="915"/>
         </scene>
     </scenes>
     <resources>

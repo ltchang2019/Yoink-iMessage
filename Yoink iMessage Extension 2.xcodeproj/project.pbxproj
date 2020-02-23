@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		53A3ACDC9B5CDA6448D58221 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B614D421878EB751E491C8 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */; };
 		8A66EAC1BD326831EB0B5258 /* Pods_Yoink_iMessage_Extension_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0608EA8085B2253590BDC2 /* Pods_Yoink_iMessage_Extension_2.framework */; };
+		9A29ECF32400D95F00C1E7CA /* DinnerStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */; };
 		9ACE01B823F8F6DC00EF2EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE01B723F8F6DC00EF2EB2 /* Assets.xcassets */; };
 		9ACE01BF23F8F6DC00EF2EB2 /* Yoink!.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9ACE01BE23F8F6DC00EF2EB2 /* Yoink!.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9ACE01C423F8F6DC00EF2EB2 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACE01C323F8F6DC00EF2EB2 /* Messages.framework */; };
@@ -20,8 +21,8 @@
 		9ACE01DF23F8F76800EF2EB2 /* SurveyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01DE23F8F76800EF2EB2 /* SurveyCell.swift */; };
 		9ACE01E123F8F78700EF2EB2 /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E023F8F78700EF2EB2 /* AnswerTableViewCell.swift */; };
 		9ACE01E323F8F79600EF2EB2 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */; };
-		9ACE01E523F90CF300EF2EB2 /* DinnerStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */; };
 		9ACE01E723F9580A00EF2EB2 /* CuisineSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E623F9580A00EF2EB2 /* CuisineSearchViewController.swift */; };
+		9AF23EAC2402649700592730 /* FloatingPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF23EAB2402649700592730 /* FloatingPanelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerStatusViewController.swift; sourceTree = "<group>"; };
 		9ACE01E623F9580A00EF2EB2 /* CuisineSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSearchViewController.swift; sourceTree = "<group>"; };
+		9AF23EAB2402649700592730 /* FloatingPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelViewController.swift; sourceTree = "<group>"; };
 		E290C4F65B7E32346869C26F /* Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2 MessagesExtension/Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 				9ACE01C623F8F6DC00EF2EB2 /* MessagesViewController.swift */,
 				9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */,
 				9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */,
+				9AF23EAB2402649700592730 /* FloatingPanelViewController.swift */,
 				9ACE01E623F9580A00EF2EB2 /* CuisineSearchViewController.swift */,
 			);
 			path = Controller;
@@ -197,6 +200,7 @@
 				9ACE01B223F8F6DC00EF2EB2 /* Resources */,
 				9ACE01D323F8F6DD00EF2EB2 /* Embed App Extensions */,
 				603944698CA49D273C5657A9 /* Frameworks */,
+				FB85A39E76A34C2628512930 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,6 +332,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FB85A39E76A34C2628512930 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yoink iMessage Extension 2/Pods-Yoink iMessage Extension 2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yoink iMessage Extension 2/Pods-Yoink iMessage Extension 2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yoink iMessage Extension 2/Pods-Yoink iMessage Extension 2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -336,10 +357,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ACE01C723F8F6DC00EF2EB2 /* MessagesViewController.swift in Sources */,
+				9AF23EAC2402649700592730 /* FloatingPanelViewController.swift in Sources */,
 				9ACE01DF23F8F76800EF2EB2 /* SurveyCell.swift in Sources */,
-				9ACE01E523F90CF300EF2EB2 /* DinnerStatusViewController.swift in Sources */,
 				9ACE01E723F9580A00EF2EB2 /* CuisineSearchViewController.swift in Sources */,
 				9ACE01DB23F8F74600EF2EB2 /* SurveyInfo.swift in Sources */,
+				9A29ECF32400D95F00C1E7CA /* DinnerStatusViewController.swift in Sources */,
 				9ACE01E123F8F78700EF2EB2 /* AnswerTableViewCell.swift in Sources */,
 				9ACE01E323F8F79600EF2EB2 /* SurveyViewController.swift in Sources */,
 				9ACE01DD23F8F75500EF2EB2 /* SurveyResponse.swift in Sources */,

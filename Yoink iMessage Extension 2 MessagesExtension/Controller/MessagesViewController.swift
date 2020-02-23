@@ -1,11 +1,3 @@
-//
-//  MessagesViewController.swift
-//  Yoink iMessage Extension 2 MessagesExtension
-//
-//  Created by Luke Tchang on 2/15/20.
-//  Copyright © 2020 Luke Tchang. All rights reserved.
-//
-
 import UIKit
 import Messages
 
@@ -28,9 +20,9 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
@@ -53,7 +45,6 @@ class MessagesViewController: MSMessagesAppViewController {
 
 extension MessagesViewController: DinnerStatusDelegate{
     func sendRecMessage(restaurantName: String, similarity: Double) {
-        print("MESSAGE SENDING")
         if let conversation = activeConversation {
             conversation.insertText("Restaurant Name: \(restaurantName), Similarity: \(similarity)") { (error: Error?) in
                 print(error)

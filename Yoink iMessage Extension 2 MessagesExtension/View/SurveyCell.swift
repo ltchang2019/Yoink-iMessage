@@ -46,7 +46,7 @@ class SurveyCell: UICollectionViewCell{
             let gradientLayer = CAGradientLayer()
             gradientLayer.cornerRadius = 20.0
             gradientLayer.masksToBounds = true
-            gradientLayer.colors = [getColorByHex(rgbHexValue: 0xffafbd).cgColor, getColorByHex(rgbHexValue: 0xffc3a0).cgColor]
+            gradientLayer.colors = [getColorByHex(rgbHexValue: 0x2193b0).cgColor, getColorByHex(rgbHexValue: 0x6dd5ed).cgColor]
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 1, y: 1)
             gradientLayer.frame = contentView.bounds

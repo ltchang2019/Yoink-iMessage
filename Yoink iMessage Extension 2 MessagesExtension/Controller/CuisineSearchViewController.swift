@@ -23,6 +23,8 @@ class CuisineSearchViewController: UIViewController{
     var delegate: CuisineSearchControllerDelegate!
     
     override func viewDidLoad() {
+        nextButtonView.layer.cornerRadius = 10
+        nextButtonView.layer.masksToBounds = true
         mySearchTextField.delegate = self as! UITextFieldDelegate
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.toSurvey2(_:)))
         nextButtonView.addGestureRecognizer(tap1)
