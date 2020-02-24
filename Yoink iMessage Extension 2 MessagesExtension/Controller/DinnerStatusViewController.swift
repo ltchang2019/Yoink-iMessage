@@ -14,7 +14,7 @@ protocol DinnerStatusDelegate {
     func sendRecMessage(restaurantName: String, similarity: Double)
 }
 
-class DinnerStatusViewController: UIViewController, FloatingPanelControllerDelegate{
+class DinnerStatusViewController: UIViewController{
     
     @IBOutlet weak var respondentsListTableView: UITableView!
     @IBOutlet weak var fillSurveyView: UIButton!
@@ -53,43 +53,12 @@ class DinnerStatusViewController: UIViewController, FloatingPanelControllerDeleg
         fpc = FloatingPanelController()
         fpc.delegate = self as FloatingPanelControllerDelegate
         let contentVC = storyboard?.instantiateViewController(identifier: "FloatingPanelVC") as! FloatingPanelViewController
-            
+        contentVC.delegate = self
+        
         fpc.set(contentViewController: contentVC)
         fpc.addPanel(toParent: self)
     }
-    
-    func customizeTwoButtons(){
-        let gradientLayer1 = CAGradientLayer()
-        gradientLayer1.cornerRadius = 20.0
-        gradientLayer1.masksToBounds = true
-        gradientLayer1.colors = [getColorByHex(rgbHexValue: 0x2193b0).cgColor, getColorByHex(rgbHexValue: 0x6dd5ed).cgColor]
-        gradientLayer1.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer1.endPoint = CGPoint(x: 1, y: 1)
-        gradientLayer1.frame = fillSurveyView.bounds
         
-        let gradientLayer2 = CAGradientLayer()
-        gradientLayer2.cornerRadius = 20.0
-        gradientLayer2.masksToBounds = true
-        gradientLayer2.colors = [getColorByHex(rgbHexValue: 0x2193b0).cgColor, getColorByHex(rgbHexValue: 0x6dd5ed).cgColor]
-        gradientLayer2.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer2.endPoint = CGPoint(x: 1, y: 1)
-        gradientLayer2.frame = getRecommendationView.bounds
-        
-        fillSurveyView.layer.shadowColor = UIColor.black.cgColor
-        fillSurveyView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        fillSurveyView.layer.shadowOpacity = 0.2
-        fillSurveyView.layer.shadowRadius = 5.0
-        fillSurveyView.layer.insertSublayer(gradientLayer1, at: 0)
-        fillSurveyView.setTitleColor(UIColor.white, for: .normal)
-               
-        getRecommendationView.layer.shadowColor = UIColor.black.cgColor
-        getRecommendationView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        getRecommendationView.layer.shadowOpacity = 0.2
-        getRecommendationView.layer.shadowRadius = 5.0
-        getRecommendationView.layer.insertSublayer(gradientLayer2, at: 0)
-        getRecommendationView.setTitleColor(UIColor.white, for: .normal)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         getRespondents {
             DispatchQueue.main.async {
@@ -98,24 +67,13 @@ class DinnerStatusViewController: UIViewController, FloatingPanelControllerDeleg
         }
     }
     
-    @objc func getRecommendation(_ sender: Any) {
-            print("Get Recommendation Pressed")
-            getRec { (name, similarity) in
-                print(name, similarity)
-                self.delegate.sendRecMessage(restaurantName: name, similarity: similarity)
-            }
-    }
-        
-    @objc func openSurvey(_ sender: Any) {
-        performSegue(withIdentifier: "toSurvey", sender: self)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSurvey"{
-            let surveyVC = segue.destination as! CuisineSearchViewController
-            surveyVC.delegate = self as! CuisineSearchControllerDelegate
-        }
-    }
+//    @objc func getRecommendation(_ sender: Any) {
+//            print("Get Recommendation Pressed")
+//            getRec { (name, similarity) in
+//                print(name, similarity)
+//                self.delegate.sendRecMessage(restaurantName: name, similarity: similarity)
+//            }
+//    }
     
     func getColorByHex(rgbHexValue:UInt32, alpha:Double = 1.0) -> UIColor {
         let red = Double((rgbHexValue & 0xFF0000) >> 16) / 256.0
@@ -132,10 +90,10 @@ class DinnerStatusViewController: UIViewController, FloatingPanelControllerDeleg
             fillSurveyView.layer.cornerRadius = 10
             getRecommendationView.layer.cornerRadius = 10
             
-            let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.getRecommendation(_:)))
-            getRecommendationView.addGestureRecognizer(tap1)
-            let tap2 = UITapGestureRecognizer(target: self, action: #selector(self.openSurvey(_:)))
-            fillSurveyView.addGestureRecognizer(tap2)
+//            let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.getRecommendation(_:)))
+//            getRecommendationView.addGestureRecognizer(tap1)
+//            let tap2 = UITapGestureRecognizer(target: self, action: #selector(self.openSurvey(_:)))
+//            fillSurveyView.addGestureRecognizer(tap2)
             
         }
         
@@ -171,35 +129,7 @@ class DinnerStatusViewController: UIViewController, FloatingPanelControllerDeleg
             })
             task.resume()
         }
-        
-        func getRec(completion: @escaping (_ name: String, _ similarity: Double) -> ()){
-            var URLString = "https://yoink-268306.appspot.com/dinners/MY6BZH/recommend"
-              
-            var request = URLRequest(url: URL(string: URLString)!)
-            request.httpMethod = "GET"
-              
-            let session = URLSession.shared
-             
-            let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-              do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
-                if let successStatus = json["status"] as? String {
-                  if successStatus == "OK" {
-                    if let result = json["result"] as? Dictionary<String, AnyObject>{
-                        if let name = result["resturant_name"] as? String, let similarity = result["similarity"] as? Double{
-                            completion(name, similarity)
-                        }
-                    }
-                  }
-                }
-              } catch {
-                  print("error!")
-                  completion("bad", 0.0)
-              }
-            })
-            task.resume()
-        }
-        
+    
     }
 
 
@@ -225,12 +155,29 @@ class DinnerStatusViewController: UIViewController, FloatingPanelControllerDeleg
         }
     }
 
-//    extension DinnerStatusViewController: CuisineSearchControllerDelegate{
-//        func refreshTable() {
-//            getRespondents {
-//                DispatchQueue.main.async {
-//                    self.respondentsListTableView.reloadData()
-//                }
-//            }
-//        }
-//    }
+extension DinnerStatusViewController: FloatingPanelControllerDelegate{
+    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+        return CustomFloatingPanelLayout()
+    }
+}
+
+class CustomFloatingPanelLayout: FloatingPanelLayout {
+    func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+        switch position {
+            case .full: return 16.0 // A top inset from safe area
+            case .half: return 216.0 // A bottom inset from the safe area
+            case .tip: return 150.0 // A bottom inset from the safe area
+            default: return nil // Or `case .hidden: return nil`
+        }
+    }
+    
+    public var initialPosition: FloatingPanelPosition{
+        return .tip
+    }
+}
+
+extension DinnerStatusViewController: FloatingPanelViewControllerDelegate{
+    func sendInfoToMessageController(restaurantName: String, similarity: Double) {
+        delegate.sendRecMessage(restaurantName: restaurantName, similarity: similarity)
+    }
+}

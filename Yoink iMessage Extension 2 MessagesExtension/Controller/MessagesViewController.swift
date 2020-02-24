@@ -35,7 +35,11 @@ class MessagesViewController: MSMessagesAppViewController {
                 requestPresentationStyle(.expanded)
                 let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
                 let dinnerStatusVC = storyboard.instantiateViewController(identifier: "DinnerStatusVC") as! DinnerStatusViewController
-                dinnerStatusVC.delegate = self
+                dinnerStatusVC.delegate = self as! DinnerStatusDelegate
+                
+//                let floatingPanelVC = storyboard.instantiateViewController(identifier: "FloatingPanelVC") as! FloatingPanelViewController
+//                floatingPanelVC.delegate = self as FloatingPanelViewControllerDelegate
+                
                 show(dinnerStatusVC, sender: self)
             }
         }
