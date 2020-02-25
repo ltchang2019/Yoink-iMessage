@@ -49,11 +49,11 @@
             <objects>
                 <viewController storyboardIdentifier="SurveyViewController" hidesBottomBarWhenPushed="YES" id="6Uz-9f-SRj" userLabel="Survey View Controller" customClass="SurveyViewController" customModule="Yoink_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j9A-uQ-dbM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXw-vk-bA8" userLabel="Submit Button">
-                                <rect key="frame" x="234.33333333333337" y="640" width="165.66666666666663" height="65"/>
+                                <rect key="frame" x="234.33333333333337" y="660" width="165.66666666666663" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGp-Xc-Gqw">
                                         <rect key="frame" x="40.999999999999979" y="15.333333333333368" width="83.666666666666686" height="34.666666666666657"/>
@@ -226,31 +226,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ee-7l-bnW">
-                                <rect key="frame" x="69" y="245" width="276" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="276" id="6ia-zj-CTW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Preferred Cuisine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2K-r0-j9Z">
-                                <rect key="frame" x="103.66666666666669" y="207" width="207" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-Ea-JVo" userLabel="Next Button">
                                 <rect key="frame" x="228" y="631" width="165.66666666666663" height="65"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVW-RY-Sxm">
-                                        <rect key="frame" x="55.333333333333314" y="15.666666666666629" width="55.333333333333343" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVW-RY-Sxm">
+                                        <rect key="frame" x="40.333333333333307" y="14.333333333333368" width="85.333333333333314" height="36.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2135310872179389" green="0.85694177751876144" blue="0.86935466610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="mVW-RY-Sxm" firstAttribute="centerX" secondItem="aUm-Ea-JVo" secondAttribute="centerX" id="6hH-c5-vOS"/>
                                     <constraint firstAttribute="width" constant="165.66666666666663" id="9KD-f0-su2"/>
@@ -258,28 +244,126 @@
                                     <constraint firstItem="mVW-RY-Sxm" firstAttribute="centerY" secondItem="aUm-Ea-JVo" secondAttribute="centerY" id="rVz-Ab-Fq4"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preference..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ee-7l-bnW">
+                                <rect key="frame" x="70" y="261.66666666666669" width="276" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="6ia-zj-CTW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Preferred Cuisine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2K-r0-j9Z">
+                                <rect key="frame" x="93.999999999999986" y="208" width="229.66666666666663" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Prefered Price Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZ6-6j-IiS">
+                                <rect key="frame" x="79.666666666666657" y="372.66666666666669" width="256.66666666666674" height="28.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide Location (optional)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRe-wR-GeH">
+                                <rect key="frame" x="73" y="40" width="270" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-dS-XGe">
+                                <rect key="frame" x="134" y="134" width="146" height="30"/>
+                                <state key="normal" title="Use Current Location"/>
+                            </button>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="rYQ-n5-BA1">
+                                <rect key="frame" x="51" y="78" width="314" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="acv-og-AeA">
+                                <rect key="frame" x="92" y="409" width="230" height="174"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiU-Sf-xKP">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="230" id="6kN-1f-sCz"/>
+                                            <constraint firstAttribute="height" constant="42" id="Mgi-we-1dr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="$">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="button1Pressed:" destination="DGI-6d-5GA" eventType="touchUpInside" id="5yE-XQ-XlI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pl7-0w-BgX">
+                                        <rect key="frame" x="0.0" y="62" width="230" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="230" id="0WO-Hh-Sck"/>
+                                            <constraint firstAttribute="height" constant="48" id="v0K-XY-8P6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="$$">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="button2Pressed:" destination="DGI-6d-5GA" eventType="touchUpInside" id="5wj-xf-qHZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anI-UX-zkl">
+                                        <rect key="frame" x="0.0" y="130" width="230" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="B2O-vZ-fbH"/>
+                                            <constraint firstAttribute="width" constant="230" id="FSr-9Y-Ctr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="$$$">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="button3Pressed:" destination="DGI-6d-5GA" eventType="touchUpInside" id="R5a-nt-89w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.12941176470588234" green="0.57647058823529407" blue="0.69019607843137254" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.98999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="E2K-r0-j9Z" firstAttribute="top" secondItem="Q74-dS-XGe" secondAttribute="bottom" constant="44" id="6Jw-Lj-PXK"/>
+                            <constraint firstItem="pZ6-6j-IiS" firstAttribute="top" secondItem="7ee-7l-bnW" secondAttribute="bottom" constant="77" id="6L7-no-B45"/>
+                            <constraint firstItem="acv-og-AeA" firstAttribute="top" secondItem="pZ6-6j-IiS" secondAttribute="bottom" constant="7.6666666666666288" id="9ZL-fq-RuA"/>
+                            <constraint firstItem="DRe-wR-GeH" firstAttribute="centerX" secondItem="Xhk-ab-Dwx" secondAttribute="centerX" constant="1" id="FYp-0w-kXy"/>
                             <constraint firstItem="Xhk-ab-Dwx" firstAttribute="bottom" secondItem="aUm-Ea-JVo" secondAttribute="bottom" constant="20" id="KbQ-sH-j5P"/>
                             <constraint firstItem="Xhk-ab-Dwx" firstAttribute="trailing" secondItem="aUm-Ea-JVo" secondAttribute="trailing" constant="20.333333333333371" id="MBa-QJ-pUE"/>
-                            <constraint firstItem="E2K-r0-j9Z" firstAttribute="top" secondItem="Xhk-ab-Dwx" secondAttribute="top" constant="207" id="hst-a1-Zrz"/>
-                            <constraint firstItem="7ee-7l-bnW" firstAttribute="leading" secondItem="Xhk-ab-Dwx" secondAttribute="leading" constant="69" id="iGc-XF-Idm"/>
-                            <constraint firstItem="7ee-7l-bnW" firstAttribute="top" secondItem="E2K-r0-j9Z" secondAttribute="bottom" constant="14" id="qyI-aX-cD0"/>
-                            <constraint firstItem="E2K-r0-j9Z" firstAttribute="centerX" secondItem="Xhk-ab-Dwx" secondAttribute="centerX" id="unI-xc-WJN"/>
+                            <constraint firstItem="rYQ-n5-BA1" firstAttribute="top" secondItem="DRe-wR-GeH" secondAttribute="bottom" constant="9.3333333333333286" id="Q1R-VX-Zg7"/>
+                            <constraint firstItem="Q74-dS-XGe" firstAttribute="top" secondItem="rYQ-n5-BA1" secondAttribute="bottom" id="SI9-gm-oR2"/>
+                            <constraint firstItem="E2K-r0-j9Z" firstAttribute="centerX" secondItem="Q74-dS-XGe" secondAttribute="centerX" constant="1.8333333333333428" id="Xda-N6-R9c"/>
+                            <constraint firstItem="rYQ-n5-BA1" firstAttribute="centerX" secondItem="DRe-wR-GeH" secondAttribute="centerX" id="aML-2i-BL5"/>
+                            <constraint firstItem="DRe-wR-GeH" firstAttribute="top" secondItem="Xhk-ab-Dwx" secondAttribute="top" constant="40" id="g7T-kx-VcF"/>
+                            <constraint firstItem="7ee-7l-bnW" firstAttribute="leading" secondItem="Xhk-ab-Dwx" secondAttribute="leading" constant="70" id="iGc-XF-Idm"/>
+                            <constraint firstItem="pZ6-6j-IiS" firstAttribute="centerX" secondItem="7ee-7l-bnW" secondAttribute="centerX" id="iTM-dE-FiL"/>
+                            <constraint firstItem="rYQ-n5-BA1" firstAttribute="leading" secondItem="Xhk-ab-Dwx" secondAttribute="leading" constant="51" id="ogG-O8-Eoo"/>
+                            <constraint firstItem="acv-og-AeA" firstAttribute="centerX" secondItem="pZ6-6j-IiS" secondAttribute="centerX" constant="-1.0000000000000284" id="qWv-1E-98L"/>
+                            <constraint firstItem="7ee-7l-bnW" firstAttribute="top" secondItem="E2K-r0-j9Z" secondAttribute="bottom" constant="25" id="qyI-aX-cD0"/>
+                            <constraint firstItem="E2K-r0-j9Z" firstAttribute="centerX" secondItem="Xhk-ab-Dwx" secondAttribute="centerX" constant="1.8333333333333428" id="unI-xc-WJN"/>
+                            <constraint firstItem="Q74-dS-XGe" firstAttribute="centerX" secondItem="rYQ-n5-BA1" secondAttribute="centerX" constant="-1" id="xxa-iz-0tA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xhk-ab-Dwx"/>
                     </view>
                     <connections>
                         <outlet property="mySearchTextField" destination="7ee-7l-bnW" id="dG2-jn-aWs"/>
                         <outlet property="nextButtonView" destination="aUm-Ea-JVo" id="Qci-eo-Ncj"/>
+                        <outlet property="priceButton1" destination="tiU-Sf-xKP" id="oQV-ns-0Bz"/>
+                        <outlet property="priceButton2" destination="pl7-0w-BgX" id="dn2-7W-m8g"/>
+                        <outlet property="priceButton3" destination="anI-UX-zkl" id="yYI-kD-9do"/>
                         <outlet property="titleLabel" destination="E2K-r0-j9Z" id="QiG-Kr-BeD"/>
-                        <segue destination="6Uz-9f-SRj" kind="presentation" identifier="toSurvey2" id="KhA-Lx-3om"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKY-ru-WQr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="214"/>
+            <point key="canvasLocation" x="1527.536231884058" y="213.58695652173915"/>
         </scene>
         <!--Dinner Status View Controller-->
         <scene sceneID="er7-d0-IW1">
@@ -395,11 +479,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1s-b8-IR0">
-                                <rect key="frame" x="106" y="30" width="202" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <rect key="frame" x="106" y="30" width="205" height="45"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                 <state key="normal" title="Submit Preferences">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                 </state>
                                 <connections>
@@ -407,11 +492,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-OM-hIy">
-                                <rect key="frame" x="94.666666666666686" y="93" width="225" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <rect key="frame" x="93" y="96" width="231" height="45"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                 <state key="normal" title="Get Recommendation">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="getRecommendationsPressed:" destination="22o-dc-Egx" eventType="touchUpInside" id="zfu-OA-cmx"/>

@@ -17,52 +17,71 @@ class CuisineSearchViewController: UIViewController{
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mySearchTextField: UITextField!
     @IBOutlet weak var nextButtonView: UIView!
+    @IBOutlet weak var priceButton1: UIButton!
+    @IBOutlet weak var priceButton2: UIButton!
+    @IBOutlet weak var priceButton3: UIButton!
     
     var finalString: String!
     var personName: String!
     var delegate: CuisineSearchControllerDelegate!
+    var dollarPreference: Int?
     
     override func viewDidLoad() {
+        preparePricingButtons()
+        
         nextButtonView.layer.cornerRadius = 10
         nextButtonView.layer.masksToBounds = true
         mySearchTextField.delegate = self as! UITextFieldDelegate
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.toSurvey2(_:)))
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.submitPreferences(_:)))
         nextButtonView.addGestureRecognizer(tap1)
     }
     
-    @objc func toSurvey2(_ sender: Any){
-        finalString = mySearchTextField.text
-        performSegue(withIdentifier: "toSurvey2", sender: finalString)
+    func preparePricingButtons(){
+        priceButton1.layer.borderWidth = 1
+        priceButton2.layer.borderWidth = 1
+        priceButton3.layer.borderWidth = 1
+        
+        priceButton1.layer.cornerRadius = 5
+        priceButton2.layer.cornerRadius = 5
+        priceButton3.layer.cornerRadius = 5
+        
+        priceButton1.layer.borderColor = UIColor.lightGray.cgColor
+        priceButton2.layer.borderColor = UIColor.lightGray.cgColor
+        priceButton3.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "toSurvey2"){
-            let survey2VC = segue.destination as! SurveyViewController
-            survey2VC.sentCuisineAnswer = sender as? String
-            survey2VC.personName = self.personName as? String
-            survey2VC.delegate = self
-        }
+    
+    @IBAction func button1Pressed(_ sender: Any) {
+        dollarPreference = 1
+        priceButton1.setTitleColor(UIColor.white, for: .normal)
+        priceButton2.setTitleColor(UIColor.lightGray, for: .normal)
+        priceButton3.setTitleColor(UIColor.lightGray, for: .normal)
+        priceButton1.layer.backgroundColor = UIColor.systemTeal.cgColor
+        priceButton2.layer.backgroundColor = UIColor.clear.cgColor
+        priceButton3.layer.backgroundColor = UIColor.clear.cgColor
+    }
+    @IBAction func button2Pressed(_ sender: Any) {
+        dollarPreference = 2
+        priceButton1.setTitleColor(UIColor.lightGray, for: .normal)
+        priceButton2.setTitleColor(UIColor.white, for: .normal)
+        priceButton3.setTitleColor(UIColor.lightGray, for: .normal)
+        priceButton1.layer.backgroundColor = UIColor.clear.cgColor
+        priceButton2.layer.backgroundColor = UIColor.systemTeal.cgColor
+        priceButton3.layer.backgroundColor = UIColor.clear.cgColor
+    }
+    @IBAction func button3Pressed(_ sender: Any) {
+        dollarPreference = 3
+        priceButton1.setTitleColor(UIColor.lightGray, for: .normal)
+        priceButton2.setTitleColor(UIColor.lightGray, for: .normal)
+        priceButton3.setTitleColor(UIColor.white, for: .normal)
+        priceButton1.layer.backgroundColor = UIColor.clear.cgColor
+        priceButton2.layer.backgroundColor = UIColor.clear.cgColor
+        priceButton3.layer.backgroundColor = UIColor.systemTeal.cgColor
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-//        self.delegate.refreshTable()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let alertController = UIAlertController(title: "Name", message:
-            "Please enter your name:", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (UIAlertAction) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        alertController.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (action: UIAlertAction) in
-            self.personName = alertController.textFields![0].text
-            print(self.personName)
-        }))
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Name"
-        }
-
-        self.present(alertController, animated: true, completion: nil)
+    @objc func submitPreferences(_ sender: Any){
+        //submit cuisine and price to database (final string + dollarPreference)
+        self.dismiss(animated: true, completion: nil)
     }
     
     let suggestions = [
@@ -186,13 +205,5 @@ extension CuisineSearchViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
             return true
-    }
-}
-
-extension CuisineSearchViewController: SurveyViewControllerDelegate{
-    func dismissView() {
-        //dismiss surveyVC delegate, then dismiss self
-        self.dismiss(animated: true, completion: nil)
-        self.dismiss(animated: true, completion: nil)
     }
 }

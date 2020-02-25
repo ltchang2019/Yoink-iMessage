@@ -86,35 +86,8 @@ extension FloatingPanelViewController: CuisineSearchControllerDelegate{
 
 extension FloatingPanelViewController{
     func customizeTwoButtons(){
-        let gradientLayer1 = CAGradientLayer()
-        gradientLayer1.cornerRadius = 20.0
-        gradientLayer1.masksToBounds = true
-        gradientLayer1.colors = [getColorByHex(rgbHexValue: 0x2193b0).cgColor, getColorByHex(rgbHexValue: 0x6dd5ed).cgColor]
-        gradientLayer1.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer1.endPoint = CGPoint(x: 1, y: 1)
-        gradientLayer1.frame = submitPreferencesButton.bounds
-        
-        let gradientLayer2 = CAGradientLayer()
-        gradientLayer2.cornerRadius = 20.0
-        gradientLayer2.masksToBounds = true
-        gradientLayer2.colors = [getColorByHex(rgbHexValue: 0x2193b0).cgColor, getColorByHex(rgbHexValue: 0x6dd5ed).cgColor]
-        gradientLayer2.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer2.endPoint = CGPoint(x: 1, y: 1)
-        gradientLayer2.frame = getRecommendationsButton.bounds
-        
-        submitPreferencesButton.layer.shadowColor = UIColor.black.cgColor
-        submitPreferencesButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        submitPreferencesButton.layer.shadowOpacity = 0.2
-        submitPreferencesButton.layer.shadowRadius = 5.0
-        submitPreferencesButton.layer.insertSublayer(gradientLayer1, at: 0)
-        submitPreferencesButton.setTitleColor(UIColor.white, for: .normal)
-               
-        getRecommendationsButton.layer.shadowColor = UIColor.black.cgColor
-        getRecommendationsButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        getRecommendationsButton.layer.shadowOpacity = 0.2
-        getRecommendationsButton.layer.shadowRadius = 5.0
-        getRecommendationsButton.layer.insertSublayer(gradientLayer2, at: 0)
-        getRecommendationsButton.setTitleColor(UIColor.white, for: .normal)
+        submitPreferencesButton.layer.cornerRadius = 5
+        getRecommendationsButton.layer.cornerRadius = 5
     }
     
     func getColorByHex(rgbHexValue:UInt32, alpha:Double = 1.0) -> UIColor {
