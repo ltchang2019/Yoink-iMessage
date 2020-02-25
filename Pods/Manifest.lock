@@ -1,16 +1,20 @@
 PODS:
   - FloatingPanel (1.7.2)
+  - LocationPicker (1.4.2)
 
 DEPENDENCIES:
   - FloatingPanel
+  - LocationPicker
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FloatingPanel
+    - LocationPicker
 
 SPEC CHECKSUMS:
   FloatingPanel: b275a35d0a09be4bd37025e710a6a1d063bfc161
+  LocationPicker: 9af49409ec3ca13fdf4bf6b39e1a3c7dec029f4a
 
-PODFILE CHECKSUM: 5ee80b79aeadfc270126516408136a24234e74d5
+PODFILE CHECKSUM: ac5dffb95bf61fdce75f3ec93a4715401c00cd65
 
 COCOAPODS: 1.7.5

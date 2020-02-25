@@ -36,16 +36,16 @@ class DinnerStatusViewController: UIViewController{
     }
     
     func setUpMapView(){
-        let location = CLLocationCoordinate2D(latitude: 51.50007773,
-            longitude: -0.1246402)
+        let location = CLLocationCoordinate2D(latitude: 54.0696,
+            longitude:  50.3616)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: location, span: span)
             mapView.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
-        annotation.title = "Big Ben"
-        annotation.subtitle = "London"
+        annotation.title = "A Place?"
+        annotation.subtitle = "Palo Alto"
         mapView.addAnnotation(annotation)
     }
     
@@ -179,5 +179,10 @@ class CustomFloatingPanelLayout: FloatingPanelLayout {
 extension DinnerStatusViewController: FloatingPanelViewControllerDelegate{
     func sendInfoToMessageController(restaurantName: String, similarity: Double) {
         delegate.sendRecMessage(restaurantName: restaurantName, similarity: similarity)
+    }
+}
+
+extension DinnerStatusViewController: CuisineSearchControllerDelegate{
+    func dropNewPin() {
     }
 }

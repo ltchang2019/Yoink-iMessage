@@ -272,11 +272,19 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-dS-XGe">
                                 <rect key="frame" x="134" y="134" width="146" height="30"/>
-                                <state key="normal" title="Use Current Location"/>
+                                <state key="normal" title="Use Current Location">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="useCurrentLocationPressed:" destination="DGI-6d-5GA" eventType="touchUpInside" id="Wfy-a7-i92"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="rYQ-n5-BA1">
                                 <rect key="frame" x="51" y="78" width="314" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DGI-6d-5GA" id="tBy-aW-AMv"/>
+                                </connections>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="acv-og-AeA">
                                 <rect key="frame" x="92" y="409" width="230" height="174"/>
@@ -353,6 +361,7 @@
                         <viewLayoutGuide key="safeArea" id="Xhk-ab-Dwx"/>
                     </view>
                     <connections>
+                        <outlet property="locationSearchBar" destination="rYQ-n5-BA1" id="ey9-ur-QYy"/>
                         <outlet property="mySearchTextField" destination="7ee-7l-bnW" id="dG2-jn-aWs"/>
                         <outlet property="nextButtonView" destination="aUm-Ea-JVo" id="Qci-eo-Ncj"/>
                         <outlet property="priceButton1" destination="tiU-Sf-xKP" id="oQV-ns-0Bz"/>

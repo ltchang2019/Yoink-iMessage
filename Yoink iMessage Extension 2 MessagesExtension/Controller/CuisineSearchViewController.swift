@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import MapKit
+import LocationPicker
+import CoreLocation
 
 protocol CuisineSearchControllerDelegate {
-    func refreshTable()
+    func dropNewPin()
 }
 
-class CuisineSearchViewController: UIViewController{
+class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mySearchTextField: UITextField!
@@ -20,11 +23,28 @@ class CuisineSearchViewController: UIViewController{
     @IBOutlet weak var priceButton1: UIButton!
     @IBOutlet weak var priceButton2: UIButton!
     @IBOutlet weak var priceButton3: UIButton!
+    @IBOutlet weak var locationSearchBar: UISearchBar!
     
     var finalString: String!
     var personName: String!
     var delegate: CuisineSearchControllerDelegate!
     var dollarPreference: Int?
+    var address: String?
+    
+    var locationManager = CLLocationManager()
+    let geocoder = CLGeocoder()
+    var currentLocation: CLLocation!{
+        didSet{
+            geocoder.reverseGeocodeLocation(currentLocation) { (placemarks, error) in
+                if error == nil{
+                    self.address = "\(placemarks![0].thoroughfare!), \(placemarks![0].locality!)"
+                    self.locationSearchBar.text = self.address
+                } else {
+                    print(error)
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         preparePricingButtons()
@@ -48,6 +68,23 @@ class CuisineSearchViewController: UIViewController{
         priceButton1.layer.borderColor = UIColor.lightGray.cgColor
         priceButton2.layer.borderColor = UIColor.lightGray.cgColor
         priceButton3.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    @IBAction func useCurrentLocationPressed(_ sender: Any) {
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            currentLocation = location
+        }
+        locationManager.stopUpdatingLocation()
     }
     
     
@@ -206,4 +243,8 @@ extension CuisineSearchViewController: UITextFieldDelegate{
             textField.resignFirstResponder()
             return true
     }
+}
+
+extension CuisineSearchViewController: UISearchBarDelegate{
+    
 }

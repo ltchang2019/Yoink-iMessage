@@ -13,5 +13,6 @@ target 'Yoink iMessage Extension 2 MessagesExtension' do
   use_frameworks!
   # Pods for Yoink iMessage Extension 2 MessagesExtension
   pod 'FloatingPanel'
-  pod 'GooglePlacesSearchController'
+  pod 'LocationPicker'
+  
 end

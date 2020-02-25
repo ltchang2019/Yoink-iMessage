@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53A3ACDC9B5CDA6448D58221 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B614D421878EB751E491C8 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */; };
-		8A66EAC1BD326831EB0B5258 /* Pods_Yoink_iMessage_Extension_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0608EA8085B2253590BDC2 /* Pods_Yoink_iMessage_Extension_2.framework */; };
+		6AB800FA9A3D9C67E66D823F /* Pods_Yoink_iMessage_Extension_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EB8C496FFB70F9455B5BA8 /* Pods_Yoink_iMessage_Extension_2.framework */; };
 		9A29ECF32400D95F00C1E7CA /* DinnerStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */; };
 		9ACE01B823F8F6DC00EF2EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE01B723F8F6DC00EF2EB2 /* Assets.xcassets */; };
 		9ACE01BF23F8F6DC00EF2EB2 /* Yoink!.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9ACE01BE23F8F6DC00EF2EB2 /* Yoink!.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -23,6 +22,7 @@
 		9ACE01E323F8F79600EF2EB2 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E223F8F79600EF2EB2 /* SurveyViewController.swift */; };
 		9ACE01E723F9580A00EF2EB2 /* CuisineSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE01E623F9580A00EF2EB2 /* CuisineSearchViewController.swift */; };
 		9AF23EAC2402649700592730 /* FloatingPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF23EAB2402649700592730 /* FloatingPanelViewController.swift */; };
+		C94B53779F74DC96093DAECE /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3089FA4C72C202B7882A64B7 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,11 +50,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		30DAB0D0A9C7BB9BD40A3345 /* Pods-Yoink iMessage Extension 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2.debug.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2/Pods-Yoink iMessage Extension 2.debug.xcconfig"; sourceTree = "<group>"; };
-		47B614D421878EB751E491C8 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63B9E323EB92F56F6D9BD58B /* Pods-Yoink iMessage Extension 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2.release.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2/Pods-Yoink iMessage Extension 2.release.xcconfig"; sourceTree = "<group>"; };
-		6E0608EA8085B2253590BDC2 /* Pods_Yoink_iMessage_Extension_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoink_iMessage_Extension_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7247F6DF49CA3C39416AC8FC /* Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2 MessagesExtension/Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		3089FA4C72C202B7882A64B7 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60E5536896687F8CB5DA7060 /* Pods-Yoink iMessage Extension 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2.debug.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2/Pods-Yoink iMessage Extension 2.debug.xcconfig"; sourceTree = "<group>"; };
+		6B5BE7F977CA67FB1B09C937 /* Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2 MessagesExtension/Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
+		8E6719FFC357543A035699A4 /* Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2 MessagesExtension/Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		9ACE01B423F8F6DC00EF2EB2 /* Yoink!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yoink!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ACE01B723F8F6DC00EF2EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ACE01B923F8F6DC00EF2EB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,7 +71,8 @@
 		9ACE01E423F90CF300EF2EB2 /* DinnerStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerStatusViewController.swift; sourceTree = "<group>"; };
 		9ACE01E623F9580A00EF2EB2 /* CuisineSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSearchViewController.swift; sourceTree = "<group>"; };
 		9AF23EAB2402649700592730 /* FloatingPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelViewController.swift; sourceTree = "<group>"; };
-		E290C4F65B7E32346869C26F /* Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2 MessagesExtension/Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
+		B1871CBCBA215CCBAF5CB982 /* Pods-Yoink iMessage Extension 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoink iMessage Extension 2.release.xcconfig"; path = "Target Support Files/Pods-Yoink iMessage Extension 2/Pods-Yoink iMessage Extension 2.release.xcconfig"; sourceTree = "<group>"; };
+		D1EB8C496FFB70F9455B5BA8 /* Pods_Yoink_iMessage_Extension_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoink_iMessage_Extension_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A66EAC1BD326831EB0B5258 /* Pods_Yoink_iMessage_Extension_2.framework in Frameworks */,
+				6AB800FA9A3D9C67E66D823F /* Pods_Yoink_iMessage_Extension_2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ACE01C423F8F6DC00EF2EB2 /* Messages.framework in Frameworks */,
-				53A3ACDC9B5CDA6448D58221 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework in Frameworks */,
+				C94B53779F74DC96093DAECE /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,8 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				9ACE01C323F8F6DC00EF2EB2 /* Messages.framework */,
-				6E0608EA8085B2253590BDC2 /* Pods_Yoink_iMessage_Extension_2.framework */,
-				47B614D421878EB751E491C8 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */,
+				D1EB8C496FFB70F9455B5BA8 /* Pods_Yoink_iMessage_Extension_2.framework */,
+				3089FA4C72C202B7882A64B7 /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,10 +181,10 @@
 		A36A3855149C8E4B3AD9852C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				30DAB0D0A9C7BB9BD40A3345 /* Pods-Yoink iMessage Extension 2.debug.xcconfig */,
-				63B9E323EB92F56F6D9BD58B /* Pods-Yoink iMessage Extension 2.release.xcconfig */,
-				7247F6DF49CA3C39416AC8FC /* Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig */,
-				E290C4F65B7E32346869C26F /* Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig */,
+				60E5536896687F8CB5DA7060 /* Pods-Yoink iMessage Extension 2.debug.xcconfig */,
+				B1871CBCBA215CCBAF5CB982 /* Pods-Yoink iMessage Extension 2.release.xcconfig */,
+				8E6719FFC357543A035699A4 /* Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig */,
+				6B5BE7F977CA67FB1B09C937 /* Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -196,11 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9ACE01D423F8F6DD00EF2EB2 /* Build configuration list for PBXNativeTarget "Yoink iMessage Extension 2" */;
 			buildPhases = (
-				32BBE97547B45AE44CB3A4AD /* [CP] Check Pods Manifest.lock */,
+				91460A9C75359F045F35A3DB /* [CP] Check Pods Manifest.lock */,
 				9ACE01B223F8F6DC00EF2EB2 /* Resources */,
 				9ACE01D323F8F6DD00EF2EB2 /* Embed App Extensions */,
 				603944698CA49D273C5657A9 /* Frameworks */,
-				FB85A39E76A34C2628512930 /* [CP] Embed Pods Frameworks */,
+				EBE7E29F5CB68911B6ED9CAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,7 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9ACE01D023F8F6DD00EF2EB2 /* Build configuration list for PBXNativeTarget "Yoink iMessage Extension 2 MessagesExtension" */;
 			buildPhases = (
-				33577A0D8DA98934019E230B /* [CP] Check Pods Manifest.lock */,
+				E3A20C9C0DA0BBA01A065486 /* [CP] Check Pods Manifest.lock */,
 				9ACE01BA23F8F6DC00EF2EB2 /* Sources */,
 				9ACE01BB23F8F6DC00EF2EB2 /* Frameworks */,
 				9ACE01BC23F8F6DC00EF2EB2 /* Resources */,
@@ -288,7 +288,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32BBE97547B45AE44CB3A4AD /* [CP] Check Pods Manifest.lock */ = {
+		91460A9C75359F045F35A3DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -310,7 +310,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		33577A0D8DA98934019E230B /* [CP] Check Pods Manifest.lock */ = {
+		E3A20C9C0DA0BBA01A065486 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,7 +332,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB85A39E76A34C2628512930 /* [CP] Embed Pods Frameworks */ = {
+		EBE7E29F5CB68911B6ED9CAD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -393,7 +393,9 @@
 		9ACE01CE23F8F6DD00EF2EB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -453,7 +455,9 @@
 		9ACE01CF23F8F6DD00EF2EB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -506,7 +510,7 @@
 		};
 		9ACE01D123F8F6DD00EF2EB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7247F6DF49CA3C39416AC8FC /* Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig */;
+			baseConfigurationReference = 8E6719FFC357543A035699A4 /* Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
@@ -527,7 +531,7 @@
 		};
 		9ACE01D223F8F6DD00EF2EB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E290C4F65B7E32346869C26F /* Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig */;
+			baseConfigurationReference = 6B5BE7F977CA67FB1B09C937 /* Pods-Yoink iMessage Extension 2 MessagesExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
@@ -548,9 +552,8 @@
 		};
 		9ACE01D523F8F6DD00EF2EB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30DAB0D0A9C7BB9BD40A3345 /* Pods-Yoink iMessage Extension 2.debug.xcconfig */;
+			baseConfigurationReference = 60E5536896687F8CB5DA7060 /* Pods-Yoink iMessage Extension 2.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CSG8QT94D;
@@ -564,9 +567,8 @@
 		};
 		9ACE01D623F8F6DD00EF2EB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63B9E323EB92F56F6D9BD58B /* Pods-Yoink iMessage Extension 2.release.xcconfig */;
+			baseConfigurationReference = B1871CBCBA215CCBAF5CB982 /* Pods-Yoink iMessage Extension 2.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CSG8QT94D;

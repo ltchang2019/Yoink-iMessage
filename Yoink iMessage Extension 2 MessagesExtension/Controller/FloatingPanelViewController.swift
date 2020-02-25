@@ -41,7 +41,7 @@ class FloatingPanelViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSurvey"{
             let surveyVC = segue.destination as! CuisineSearchViewController
-            surveyVC.delegate = self as! CuisineSearchControllerDelegate
+            surveyVC.delegate = self.delegate as! CuisineSearchControllerDelegate
         }
     }
     
@@ -74,15 +74,20 @@ class FloatingPanelViewController: UIViewController{
     }
 }
 
-extension FloatingPanelViewController: CuisineSearchControllerDelegate{
-        func refreshTable() {
+//extension FloatingPanelViewController: CuisineSearchControllerDelegate{
+//    func dropNewPin() {
+//
+//    }
+//
+//        func refreshTable() {
 //            getRespondents {
 //                DispatchQueue.main.async {
 //    //                 self.respondentsListTableView.reloadData()
 //                }
 //            }
-    }
-}
+//    }
+//
+//}
 
 extension FloatingPanelViewController{
     func customizeTwoButtons(){
