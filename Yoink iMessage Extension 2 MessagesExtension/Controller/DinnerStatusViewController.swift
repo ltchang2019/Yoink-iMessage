@@ -22,7 +22,6 @@ class DinnerStatusViewController: UIViewController{
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonsView: UIView!
     
-    
     var respondentsList: [String] = []
     var delegate: DinnerStatusDelegate!
     var fpc: FloatingPanelController!
@@ -36,9 +35,9 @@ class DinnerStatusViewController: UIViewController{
     }
     
     func setUpMapView(){
-        let location = CLLocationCoordinate2D(latitude: 54.0696,
-            longitude:  50.3616)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let location = CLLocationCoordinate2D(latitude: 37.423893,
+            longitude: -122.163170)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: location, span: span)
             mapView.setRegion(region, animated: true)
         

@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import LocationPicker
 import CoreLocation
 
 protocol CuisineSearchControllerDelegate {
@@ -24,12 +23,17 @@ class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var priceButton2: UIButton!
     @IBOutlet weak var priceButton3: UIButton!
     @IBOutlet weak var locationSearchBar: UISearchBar!
+    var tableView: UITableView?
     
     var finalString: String!
     var personName: String!
     var delegate: CuisineSearchControllerDelegate!
     var dollarPreference: Int?
     var address: String?
+    var chosenLocation: CLLocation?
+    
+    var completer = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
     
     var locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
@@ -46,8 +50,16 @@ class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        buildSearchTableView()
+    }
+    
     override func viewDidLoad() {
         preparePricingButtons()
+        
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        completer.delegate = self as! MKLocalSearchCompleterDelegate
         
         nextButtonView.layer.cornerRadius = 10
         nextButtonView.layer.masksToBounds = true
@@ -245,6 +257,100 @@ extension CuisineSearchViewController: UITextFieldDelegate{
     }
 }
 
-extension CuisineSearchViewController: UISearchBarDelegate{
+//SEARCHBAR DELEGATE METHODS
+extension CuisineSearchViewController: UISearchBarDelegate, MKLocalSearchCompleterDelegate{
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        buildSearchTableView()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let searchBarText = locationSearchBar.text {
+            self.completer.queryFragment = searchBarText
+        }
+        print(completer.results)
+        //update newly spawned table view
+        tableView?.reloadData()
+        print("RELOADING TABLE")
+    }
+}
+
+//SEARCHBAR TABLEVIEW METHODS
+extension CuisineSearchViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func buildSearchTableView() {
+        if let tableView = tableView {
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CustomSearchTextFieldCell")
+            self.locationSearchBar.window?.addSubview(tableView)
+        } else {
+            //addData()
+            print("tableView created")
+            tableView = UITableView(frame: CGRect.zero)
+            tableView?.delegate = self
+            tableView?.dataSource = self
+        }
+        updateSearchTableView()
+    }
+    
+    func updateSearchTableView() {
+        if let tableView = tableView {
+            self.view.bringSubviewToFront(tableView)
+            var tableHeight: CGFloat = 0
+            tableHeight = tableView.contentSize.height
+            
+            // Set a bottom margin of 10p
+            if tableHeight < tableView.contentSize.height {
+                tableHeight -= 10
+            }
+            
+            // Set tableView frame
+            var tableViewFrame = CGRect(x: 0, y: 0, width: tableView.frame.size.width - 4, height: tableHeight)
+            tableViewFrame.origin = tableView.convert(tableViewFrame.origin, to: nil)
+            tableViewFrame.origin.x += 2
+            tableViewFrame.origin.y += tableView.frame.size.height + 2
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                self?.tableView?.frame = tableViewFrame
+            })
+            
+            //Setting tableView style
+            tableView.layer.masksToBounds = true
+            tableView.separatorInset = UIEdgeInsets.zero
+            tableView.layer.cornerRadius = 5.0
+            tableView.separatorColor = UIColor.lightGray
+            tableView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+            
+            if self.isFirstResponder {
+                self.view.bringSubviewToFront(tableView)
+            }
+            
+            tableView.reloadData()
+        }
+        
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        print("number of sections")
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.completer.results.count)
+        return self.completer.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("creating cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomSearchTextFieldCell", for: indexPath) as UITableViewCell
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.text = self.completer.results[indexPath.row].title
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected row")
+        address = completer.results[indexPath.row].title
+        tableView.isHidden = true
+//        self.endEditing(true)
+    }
+    
     
 }
