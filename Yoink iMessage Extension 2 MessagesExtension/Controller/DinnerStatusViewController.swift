@@ -26,26 +26,54 @@ class DinnerStatusViewController: UIViewController{
     var delegate: DinnerStatusDelegate!
     var fpc: FloatingPanelController!
     
+    var locationStringArray: [String] = ["2015 Via Ladeta, La Jolla, CA, United States", "Stern Hall, 618 Escondido Rd, Stanford, CA  94305"]
+    let geocoder = CLGeocoder()
+    
     override func viewDidLoad() {
+        mapView.delegate = self
+        mapView.register(LocationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        
         setUpMapView()
-//        customizeTwoButtons()
         setUpFloatingPanel()
+        
 //        respondentsListTableView.dataSource = self
 //        respondentsListTableView.delegate = self as! UITableViewDelegate
     }
     
     func setUpMapView(){
         let location = CLLocationCoordinate2D(latitude: 37.423893,
-            longitude: -122.163170)
+        longitude: -122.163170)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: location, span: span)
             mapView.setRegion(region, animated: true)
+        
+        var annotation2 = MKPointAnnotation()
+        
+        geocoder.geocodeAddressString(locationStringArray[1]) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let pinLocation = placemarks.first?.location
+            else {
+                print("Error geocoding address")
+                return
+            }
+            let lat = pinLocation.coordinate.latitude
+            let long = pinLocation.coordinate.longitude
+            
+            annotation2.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            annotation2.title = "P2"
+            annotation2.subtitle = "S2"
+            print(lat, long, annotation2.title, annotation2.coordinate)
+        }
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
         annotation.title = "A Place?"
         annotation.subtitle = "Palo Alto"
-        mapView.addAnnotation(annotation)
+        let annotations = [annotation, annotation2]
+        
+//        mapView.showAnnotations(annotations, animated: true)
+        mapView.addAnnotations(annotations)
     }
     
     func setUpFloatingPanel(){
@@ -183,5 +211,28 @@ extension DinnerStatusViewController: FloatingPanelViewControllerDelegate{
 
 extension DinnerStatusViewController: CuisineSearchControllerDelegate{
     func dropNewPin() {
+    }
+}
+
+extension DinnerStatusViewController: MKMapViewDelegate{
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            var view = mapView.dequeueReusableAnnotationView(withIdentifier: "reuseIdentifier") as? MKMarkerAnnotationView
+            if view == nil {
+                view = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: "reuseIdentifier")
+            }
+            view?.annotation = annotation
+            view?.displayPriority = .required
+            return view
+        }
+}
+
+
+class LocationView: MKAnnotationView{
+    override var annotation: MKAnnotation? {
+        willSet {
+            if let _ = newValue as? CLLocationCoordinate2D {
+                self.displayPriority = .required
+            }
+        }
     }
 }

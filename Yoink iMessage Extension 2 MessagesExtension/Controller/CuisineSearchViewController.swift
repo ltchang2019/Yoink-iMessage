@@ -23,7 +23,8 @@ class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var priceButton2: UIButton!
     @IBOutlet weak var priceButton3: UIButton!
     @IBOutlet weak var locationSearchBar: UISearchBar!
-    var tableView: UITableView?
+    @IBOutlet weak var priceRangeTitleLabel: UILabel!
+    var tableView: CustomTableView?
     
     var finalString: String!
     var personName: String!
@@ -50,8 +51,9 @@ class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
         }
     }
     
+    
     override func viewDidLayoutSubviews() {
-        buildSearchTableView()
+//        buildSearchTableView()
     }
     
     override func viewDidLoad() {
@@ -259,6 +261,7 @@ extension CuisineSearchViewController: UITextFieldDelegate{
 
 //SEARCHBAR DELEGATE METHODS
 extension CuisineSearchViewController: UISearchBarDelegate, MKLocalSearchCompleterDelegate{
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         buildSearchTableView()
     }
@@ -269,6 +272,7 @@ extension CuisineSearchViewController: UISearchBarDelegate, MKLocalSearchComplet
         }
         print(completer.results)
         //update newly spawned table view
+        tableView?.isHidden = false
         tableView?.reloadData()
         print("RELOADING TABLE")
     }
@@ -284,9 +288,11 @@ extension CuisineSearchViewController: UITableViewDelegate, UITableViewDataSourc
         } else {
             //addData()
             print("tableView created")
-            tableView = UITableView(frame: CGRect.zero)
+            tableView = CustomTableView(frame: CGRect.zero)
             tableView?.delegate = self
             tableView?.dataSource = self
+            tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "CustomSearchTextFieldCell")
+            self.locationSearchBar.window?.addSubview(tableView!)
         }
         updateSearchTableView()
     }
@@ -303,13 +309,19 @@ extension CuisineSearchViewController: UITableViewDelegate, UITableViewDataSourc
             }
             
             // Set tableView frame
-            var tableViewFrame = CGRect(x: 0, y: 0, width: tableView.frame.size.width - 4, height: tableHeight)
-            tableViewFrame.origin = tableView.convert(tableViewFrame.origin, to: nil)
-            tableViewFrame.origin.x += 2
-            tableViewFrame.origin.y += tableView.frame.size.height + 2
-            UIView.animate(withDuration: 0.2, animations: { [weak self] in
-                self?.tableView?.frame = tableViewFrame
-            })
+//            var tableViewFrame = CGRect(x: 0, y: 0, width: tableView.frame.size.width - 4, height: tableHeight)
+//            tableViewFrame.origin = tableView.convert(tableViewFrame.origin, to: nil)
+//            tableViewFrame.origin.x += 2
+//            tableViewFrame.origin.y += tableView.frame.size.height + 2
+//            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+//                self?.tableView?.frame = tableViewFrame
+//            })
+            
+            tableView.translatesAutoresizingMaskIntoConstraints = false
+            tableView.topAnchor.constraint(equalTo: locationSearchBar.bottomAnchor).isActive = true
+//            tableView.bottomAnchor.constraint(equalTo: priceRangeTitleLabel.bottomAnchor).isActive = true
+            tableView.leftAnchor.constraint(equalTo: locationSearchBar.leftAnchor).isActive = true
+            tableView.rightAnchor.constraint(equalTo: locationSearchBar.rightAnchor).isActive = true
             
             //Setting tableView style
             tableView.layer.masksToBounds = true
@@ -324,7 +336,6 @@ extension CuisineSearchViewController: UITableViewDelegate, UITableViewDataSourc
             
             tableView.reloadData()
         }
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -333,7 +344,7 @@ extension CuisineSearchViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.completer.results.count)
+        print("Number of rows in section: \(self.completer.results.count)")
         return self.completer.results.count
     }
     
@@ -341,16 +352,30 @@ extension CuisineSearchViewController: UITableViewDelegate, UITableViewDataSourc
         print("creating cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomSearchTextFieldCell", for: indexPath) as UITableViewCell
         cell.backgroundColor = UIColor.clear
-        cell.textLabel?.text = self.completer.results[indexPath.row].title
+        cell.textLabel?.text = "\(self.completer.results[indexPath.row].title), \(self.completer.results[indexPath.row].subtitle)"
+        print("\(self.completer.results[indexPath.row].title), \(self.completer.results[indexPath.row].subtitle)")
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected row")
-        address = completer.results[indexPath.row].title
+        self.address = "\(self.completer.results[indexPath.row].title), \(self.completer.results[indexPath.row].subtitle)"
         tableView.isHidden = true
-//        self.endEditing(true)
+        locationSearchBar.text = self.address
+    }
+}
+
+class CustomTableView: UITableView{
+    var maxHeight: CGFloat = UIScreen.main.bounds.size.height
+    
+    override func reloadData() {
+        super.reloadData()
+        self.invalidateIntrinsicContentSize()
+        self.layoutIfNeeded()
     }
     
-    
+    override var intrinsicContentSize: CGSize {
+        let height = min(contentSize.height, maxHeight)
+        return CGSize(width: contentSize.width, height: height)
+    }
 }

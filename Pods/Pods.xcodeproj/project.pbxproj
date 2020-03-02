@@ -59,26 +59,26 @@
 		3BD441FD848AEF769B427664A60453F9 /* Pods-Yoink iMessage Extension 2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Yoink iMessage Extension 2-dummy.m"; sourceTree = "<group>"; };
 		4278333997C685DF49C020A61DD46EF0 /* Pods-Yoink iMessage Extension 2 MessagesExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yoink iMessage Extension 2 MessagesExtension-acknowledgements.plist"; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		464B5D26EAC2EAAD35F0DC0DED19F673 /* Pods_Yoink_iMessage_Extension_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Yoink_iMessage_Extension_2.framework; path = "Pods-Yoink iMessage Extension 2.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		464B5D26EAC2EAAD35F0DC0DED19F673 /* Pods_Yoink_iMessage_Extension_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoink_iMessage_Extension_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E7C22E82496ADD49B2ADD6AB1E5DD6 /* FloatingPanelView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelView.swift; path = Framework/Sources/FloatingPanelView.swift; sourceTree = "<group>"; };
 		596CB0D64CB0203295B55525DC44DB48 /* Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Yoink iMessage Extension 2 MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		5C0B863F6714A37DBC0A10546A5AD54C /* Pods-Yoink iMessage Extension 2-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yoink iMessage Extension 2-Info.plist"; sourceTree = "<group>"; };
 		6285D80843D1219BB86FC1B221F5A043 /* Pods-Yoink iMessage Extension 2-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yoink iMessage Extension 2-acknowledgements.plist"; sourceTree = "<group>"; };
 		6D7B81B23EEE7A51F543B9569752C255 /* Pods-Yoink iMessage Extension 2 MessagesExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Yoink iMessage Extension 2 MessagesExtension-dummy.m"; sourceTree = "<group>"; };
-		6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FloatingPanel.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72833AB5A250094A5F81CDD0CAF95197 /* FloatingPanelController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelController.swift; path = Framework/Sources/FloatingPanelController.swift; sourceTree = "<group>"; };
 		73C644892CCC522C96F71B849DCCE9D4 /* UIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIExtensions.swift; path = Framework/Sources/UIExtensions.swift; sourceTree = "<group>"; };
 		87B1D0F376F51EA67853067EB3FF0FF9 /* FloatingPanel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FloatingPanel.modulemap; sourceTree = "<group>"; };
 		9A71A803C05041C0D45878D654CBEE7E /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Framework/Sources/Logger.swift; sourceTree = "<group>"; };
 		9CC2205D108DD152F86BE0C18E6D4410 /* FloatingPanelSurfaceView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelSurfaceView.swift; path = Framework/Sources/FloatingPanelSurfaceView.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E6151A1098BB06D5F6A5A7A480A065E /* FloatingPanelCore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelCore.swift; path = Framework/Sources/FloatingPanelCore.swift; sourceTree = "<group>"; };
 		A9EEDCA3A58E47A02DC93DAD39DC6DA5 /* Pods-Yoink iMessage Extension 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Yoink iMessage Extension 2.release.xcconfig"; sourceTree = "<group>"; };
 		AE5788E56A8581745D1A5E4E1A8C9822 /* FloatingPanel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FloatingPanel-umbrella.h"; sourceTree = "<group>"; };
 		B44242BDA4758672521B4831E49D832E /* Pods-Yoink iMessage Extension 2 MessagesExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Yoink iMessage Extension 2 MessagesExtension.modulemap"; sourceTree = "<group>"; };
 		BA12412A6794603BFE440523D4757A5B /* Pods-Yoink iMessage Extension 2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Yoink iMessage Extension 2-umbrella.h"; sourceTree = "<group>"; };
 		C71652AACBC8E80BD2773B19569D17C8 /* Pods-Yoink iMessage Extension 2-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Yoink iMessage Extension 2-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D6DEACA77478A25E1B9B534156C8348B /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework; path = "Pods-Yoink iMessage Extension 2 MessagesExtension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6DEACA77478A25E1B9B534156C8348B /* Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoink_iMessage_Extension_2_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7414FE021796275F2C595A88D3629C6 /* Pods-Yoink iMessage Extension 2 MessagesExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Yoink iMessage Extension 2 MessagesExtension-umbrella.h"; sourceTree = "<group>"; };
 		E921DEE96DA9A9DC2BE5FE33C843B527 /* FloatingPanel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FloatingPanel-dummy.m"; sourceTree = "<group>"; };
 		E9A05E39FB031C65B155AEBC2F5D6873 /* FloatingPanelBehavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelBehavior.swift; path = Framework/Sources/FloatingPanelBehavior.swift; sourceTree = "<group>"; };
@@ -157,7 +157,6 @@
 				73C644892CCC522C96F71B849DCCE9D4 /* UIExtensions.swift */,
 				6AE36AA55113681F3D96E8FFC0851668 /* Support Files */,
 			);
-			name = FloatingPanel;
 			path = FloatingPanel;
 			sourceTree = "<group>";
 		};
@@ -342,6 +341,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = B387733AB20132C91EDC68897784E859 /* Products */;

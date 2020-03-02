@@ -367,6 +367,7 @@
                         <outlet property="priceButton1" destination="tiU-Sf-xKP" id="oQV-ns-0Bz"/>
                         <outlet property="priceButton2" destination="pl7-0w-BgX" id="dn2-7W-m8g"/>
                         <outlet property="priceButton3" destination="anI-UX-zkl" id="yYI-kD-9do"/>
+                        <outlet property="priceRangeTitleLabel" destination="pZ6-6j-IiS" id="Ugn-5X-vYc"/>
                         <outlet property="titleLabel" destination="E2K-r0-j9Z" id="QiG-Kr-BeD"/>
                     </connections>
                 </viewController>
