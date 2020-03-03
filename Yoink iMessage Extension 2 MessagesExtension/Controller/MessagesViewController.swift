@@ -15,7 +15,7 @@ class MessagesViewController: MSMessagesAppViewController {
             message.layout = layout
             message.url = URL(string: "yoink.com/fillform")
             conversation.insert(message, completionHandler: { (error: Error?) in
-                print(error)
+//                print(error)
             })
         }
     }
@@ -51,7 +51,7 @@ extension MessagesViewController: DinnerStatusDelegate{
     func sendRecMessage(restaurantName: String, similarity: Double) {
         if let conversation = activeConversation {
             conversation.insertText("Restaurant Name: \(restaurantName), Similarity: \(similarity)") { (error: Error?) in
-                print(error)
+//                print(error)
                 self.dismiss()
             }
         }

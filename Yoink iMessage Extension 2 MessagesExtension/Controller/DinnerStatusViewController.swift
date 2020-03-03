@@ -26,54 +26,54 @@ class DinnerStatusViewController: UIViewController{
     var delegate: DinnerStatusDelegate!
     var fpc: FloatingPanelController!
     
-    var locationStringArray: [String] = ["2015 Via Ladeta, La Jolla, CA, United States", "Stern Hall, 618 Escondido Rd, Stanford, CA  94305"]
     let geocoder = CLGeocoder()
+    var locationStringArray: [String] = ["Wilbur Dining, 658 Escondido Rd, Stanford, CA 94305", "Stern Hall, 618 Escondido Rd, Stanford, CA 94305"]
+    var annotationsArray: [MKPointAnnotation]?
     
     override func viewDidLoad() {
         mapView.delegate = self
         mapView.register(LocationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
-        setUpMapView()
+        addAnnotations()
+        adjustMapRegion()
         setUpFloatingPanel()
         
 //        respondentsListTableView.dataSource = self
 //        respondentsListTableView.delegate = self as! UITableViewDelegate
     }
     
-    func setUpMapView(){
+    override func viewDidAppear(_ animated: Bool) {
+        fillSurveyView.layer.cornerRadius = 10
+        getRecommendationView.layer.cornerRadius = 10
+    }
+    
+    func addAnnotations(){
+        for x in 0...locationStringArray.count - 1{
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(self.locationStringArray[x]) { (placemarks, error) in
+                guard let placemarks = placemarks, let pinLocation = placemarks.first?.location
+                else {
+                    print("Error geocoding address")
+                    return
+                }
+                let lat = pinLocation.coordinate.latitude
+                let long = pinLocation.coordinate.longitude
+                                    
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                annotation.title = placemarks[0].thoroughfare
+                annotation.subtitle = placemarks[0].locality
+                self.mapView.addAnnotation(annotation)
+            }
+        }
+    }
+    
+    func adjustMapRegion(){
         let location = CLLocationCoordinate2D(latitude: 37.423893,
         longitude: -122.163170)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: location, span: span)
             mapView.setRegion(region, animated: true)
-        
-        var annotation2 = MKPointAnnotation()
-        
-        geocoder.geocodeAddressString(locationStringArray[1]) { (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let pinLocation = placemarks.first?.location
-            else {
-                print("Error geocoding address")
-                return
-            }
-            let lat = pinLocation.coordinate.latitude
-            let long = pinLocation.coordinate.longitude
-            
-            annotation2.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            annotation2.title = "P2"
-            annotation2.subtitle = "S2"
-            print(lat, long, annotation2.title, annotation2.coordinate)
-        }
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = "A Place?"
-        annotation.subtitle = "Palo Alto"
-        let annotations = [annotation, annotation2]
-        
-//        mapView.showAnnotations(annotations, animated: true)
-        mapView.addAnnotations(annotations)
     }
     
     func setUpFloatingPanel(){
@@ -110,19 +110,6 @@ class DinnerStatusViewController: UIViewController{
         return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
     }
         
-        
-        
-        override func viewDidAppear(_ animated: Bool) {
-            
-            fillSurveyView.layer.cornerRadius = 10
-            getRecommendationView.layer.cornerRadius = 10
-            
-//            let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.getRecommendation(_:)))
-//            getRecommendationView.addGestureRecognizer(tap1)
-//            let tap2 = UITapGestureRecognizer(target: self, action: #selector(self.openSurvey(_:)))
-//            fillSurveyView.addGestureRecognizer(tap2)
-            
-        }
         
         func getRespondents(completion: @escaping () -> ()){
             var URLString = "https://yoink-268306.appspot.com/dinners/MY6BZH/preferences"
