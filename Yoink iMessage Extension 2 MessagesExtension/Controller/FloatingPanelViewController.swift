@@ -74,21 +74,6 @@ class FloatingPanelViewController: UIViewController{
     }
 }
 
-//extension FloatingPanelViewController: CuisineSearchControllerDelegate{
-//    func dropNewPin() {
-//
-//    }
-//
-//        func refreshTable() {
-//            getRespondents {
-//                DispatchQueue.main.async {
-//    //                 self.respondentsListTableView.reloadData()
-//                }
-//            }
-//    }
-//
-//}
-
 extension FloatingPanelViewController{
     func customizeTwoButtons(){
         submitPreferencesButton.layer.cornerRadius = 5

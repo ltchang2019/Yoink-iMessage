@@ -10,8 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
-protocol CuisineSearchControllerDelegate {
-    func dropNewPin()
+protocol CuisineSearchControllerDelegate{
+    func dropNewPin(location: String)
 }
 
 class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
@@ -26,9 +26,10 @@ class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var priceRangeTitleLabel: UILabel!
     var tableView: CustomTableView?
     
+    var delegate: CuisineSearchControllerDelegate!
+    
     var finalString: String!
     var personName: String!
-    var delegate: CuisineSearchControllerDelegate!
     var dollarPreference: Int?
     var address: String?
     var chosenLocation: CLLocation?
@@ -131,7 +132,9 @@ class CuisineSearchViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     @objc func submitPreferences(_ sender: Any){
-        //submit cuisine and price to database (final string + dollarPreference)
+        if locationSearchBar.text != nil{
+            delegate.dropNewPin(location: locationSearchBar.text!)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
