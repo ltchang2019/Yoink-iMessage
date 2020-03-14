@@ -27,19 +27,59 @@ class DinnerStatusViewController: UIViewController{
     var fpc: FloatingPanelController!
     
     let geocoder = CLGeocoder()
-    var locationStringArray: [String] = ["Wilbur Dining, 658 Escondido Rd, Stanford, CA  94305", "Stern Hall, 618 Escondido Rd, Stanford, CA  94305"]
-    var pinDropLocation = "Coupa Cafe, 111 Lytton Ave, Palo Alto, CA 94301, United States"
+    var locationStringArray: [String] = ["2665 Caminito Merion, La Jolla, CA  92037, United States",
+    "4545 La Jolla Village Dr, San Diego, CA  92122, United States"]
+    var restaurantLocations: [String] = ["8707 Villa La Jolla Dr, La Jolla, CA  92037, United States", "8610 Charles F. Kennel Way, La Jolla, CA  92037, United States", "8855 Villa La Jolla Dr, Unit 404, La Jolla, CA  92037, United States"]
+    
+    enum PinType{
+        case user
+        case friend
+        case restaurant
+        
+        var pinColor: UIColor{
+            switch self{
+            case .user:
+                return .systemOrange
+            case .friend:
+                return .red
+            case .restaurant:
+                return .systemYellow
+            }
+        }
+        
+        var pinTitle: String{
+            switch self{
+            case .user:
+                return "My Location"
+            case .friend:
+                return "Friend"
+            case .restaurant:
+                return "Restaurant"
+            }
+        }
+        
+        var iconName: String{
+            switch self{
+            case .user:
+                return "house.fill"
+            case .friend:
+                return "person.2.fill"
+            case .restaurant:
+                return "mappin"
+            }
+        }
+    }
+        
     var userLocation: String? {
         didSet{
-            print(self.userLocation!)
-            addAnnotations(arrayOfLocations: [self.userLocation!], myLocation: true)
+            print("Location:", self.userLocation!)
+            addAnnotations(arrayOfLocations: [self.userLocation!], pinType: .user)
         }
     }
     
     override func viewDidLoad() {
         mapView.delegate = self
         mapView.register(LocationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        
         
         adjustMapRegion()
         setUpFloatingPanel()
@@ -50,10 +90,10 @@ class DinnerStatusViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         fillSurveyView.layer.cornerRadius = 10
         getRecommendationView.layer.cornerRadius = 10
-        addAnnotations(arrayOfLocations: self.locationStringArray, myLocation: false)
+        addAnnotations(arrayOfLocations: self.locationStringArray, pinType: .friend)
     }
     
-    func addAnnotations(arrayOfLocations: [String], myLocation: Bool){
+    func addAnnotations(arrayOfLocations: [String], pinType: PinType){
         for x in 0...arrayOfLocations.count - 1{
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(arrayOfLocations[x]) { (placemarks, error) in
@@ -65,24 +105,24 @@ class DinnerStatusViewController: UIViewController{
                 let lat = pinLocation.coordinate.latitude
                 let long = pinLocation.coordinate.longitude
                                     
-                let annotation = MKPointAnnotation()
+                let annotation = CustomPointAnnotation()
+                annotation.pinTintColor = pinType.pinColor
+                annotation.iconName = pinType.iconName
+                
                 annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                if myLocation{
-                    annotation.title = "My Location"
-                } else{
-                    annotation.title = placemarks[0].name
-                }
+                annotation.title = pinType.pinTitle
                 annotation.subtitle = placemarks[0].name
                 
                 self.mapView.addAnnotation(annotation)
+                print(annotation)
             }
         }
     }
     
     func adjustMapRegion(){
-        let location = CLLocationCoordinate2D(latitude: 37.423893,
-        longitude: -122.163170)
-        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        let location = CLLocationCoordinate2D(latitude: 32.840874,
+        longitude: -117.246646)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: location, span: span)
             mapView.setRegion(region, animated: true)
     }
@@ -187,7 +227,8 @@ class CustomFloatingPanelLayout: FloatingPanelLayout {
 
 extension DinnerStatusViewController: FloatingPanelViewControllerDelegate{
     func sendInfoToMessageController(restaurantName: String, similarity: Double) {
-        delegate.sendRecMessage(restaurantName: restaurantName, similarity: similarity)
+//        delegate.sendRecMessage(restaurantName: restaurantName, similarity: similarity)
+        addAnnotations(arrayOfLocations: restaurantLocations, pinType: .restaurant)
     }
 }
 
@@ -196,6 +237,11 @@ extension DinnerStatusViewController: MKMapViewDelegate{
         var view = mapView.dequeueReusableAnnotationView(withIdentifier: "reuseIdentifier") as? MKMarkerAnnotationView
         if view == nil {
             view = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: "reuseIdentifier")
+        }
+        
+        if let annotation = annotation as? CustomPointAnnotation {
+            view?.markerTintColor = annotation.pinTintColor
+            view?.glyphImage = UIImage(systemName: annotation.iconName!)
         }
         
         view?.canShowCallout = true
@@ -216,4 +262,9 @@ class LocationView: MKAnnotationView{
             }
         }
     }
+}
+
+class CustomPointAnnotation : MKPointAnnotation {
+    var pinTintColor: UIColor?
+    var iconName: String?
 }
